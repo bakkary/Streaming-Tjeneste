@@ -26,7 +26,7 @@ Main <-- Nav
 
 class textFileIO{
 + ArrayList <String> readtextSeries()
-+ ArrayList <String> readtextFilm()
++ ArrayList <String> readtextMovie()
 + ArrayList <String> readtextUser()
 + String fileException()
 }
@@ -97,7 +97,7 @@ ID
 
 
 
-object textFilm{
+object textMovie{
 Name
 Year
 Category
@@ -121,7 +121,7 @@ abstract Content{
 }
 
 
-textFileIO <-- textFilm
+textFileIO <-- textMovie
 textFileIO <-- textUser
 textFileIO <-- textSeries
 
