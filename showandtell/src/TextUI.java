@@ -1,7 +1,6 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TextIO {
+public class TextUI {
     static Scanner scan = new Scanner (System.in);
 
 
