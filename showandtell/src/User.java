@@ -7,11 +7,14 @@ public class User {
     private String password;
     private static int ID;
 
-    private ArrayList<watchedMovies> setefilm = new ArrayList<>;
-    private ArrayList<savedMovies> gemteFilm = new ArrayList<>;
+    private ArrayList<Movie> watchedMovies = new ArrayList<>;
+    private ArrayList<Movie> savedMovies = new ArrayList<>;
 
-    public void login() {
-
+    public User(String username, String password, int age, int ID) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.ID = ID;
     }
 
     public void watchedMovies() {
@@ -22,16 +25,15 @@ public class User {
 
     }
 
-
     public void setwatchedMovies(ArrayList watchedMovies) {
-
+//add arrayList
     }
 
-    public void setsavedMovies(ArrayList SavedMovies){
-
+    public void setsavedMovies(ArrayList SavedMovies) {
+        //add arrayList
     }
 
-    public User(int age, String username, String password){
+    public User(int age, String username, String password) {
 
     }
 }

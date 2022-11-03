@@ -13,6 +13,7 @@ class Nav {
 + TextUI;
 + ArrayList series
 + ArrayList movies
++ void login()
 + void logout()
 - String signup()
 }
@@ -38,11 +39,10 @@ class User{
 - int age
 - String username
 - String password
-- ArrayList watchedMovies
-- ArrayList savedMovies
+- ArrayList<Movies> watchedMovies
+- ArrayList<Movies> savedMovies
 - static int ID
 ..
-+ void login()
 + watchedMovies()
 + savedMovies()
 + void setwatchedMovies(ArrayList watchedMovies)
