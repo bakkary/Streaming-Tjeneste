@@ -1,19 +1,30 @@
 import java.util.ArrayList;
 
 public abstract class Content {
-
-    public String title;
-    public ArrayList<String> category;
-    public float rating;
-    Content(String title, ArrayList category, float rating) {
+    private static int ID;
+    private String title;
+    private ArrayList<String> category;
+    private float rating;
+    Content(String title, ArrayList category, float rating, int ID) {
         this.title = title;
         this.category = category;
         this.rating = rating;
+        this.ID = ID;
     }
 
-    public abstract String getTitle();
+    public int getID() {
+        return ID;
+    }
 
-    public abstract ArrayList getCategories();
+    public String getTitle() {
+        return title;
+    }
 
-    public abstract float getRating();
+    public ArrayList getCategories() {
+        return category;
+    }
+
+    public float getRating() {
+        return rating;
+    }
 }

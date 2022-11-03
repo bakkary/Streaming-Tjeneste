@@ -65,29 +65,20 @@ Nav <-- textFileIO
 Nav <-- textUI
 
 Content <--- Movie
-Content <-down-  Serie
+Content <-down- Serie
 
 class Movie{
-- Static int ID
 + int year
-+ get String title()
 + int year()
-+ get ArrayList category()
-+ get float rating()
-+ play ()
++ play()
 }
 
 class Serie{
-- static int ID
-+ int startDate
-+ int endDate
-+ get String title()
-+  int range(int startDate int endDate)
-+ get ArrayList category()
-+ get float rating()
+- int startDate
+- int endDate
 + ArrayList Season[][]
-+ play (ArrayList Season[][])
-+ play()
++ String getYear(int startDate, int endDate)
++ play(int s, int e)
 }
 
 
@@ -115,9 +106,13 @@ Rating
 
 
 abstract Content{
+- Static int ID
 + String title
 + ArrayList category
 + Float rating
++ String getTitle()
++ ArrayList getCategory()
++ float getRating()
 }
 
 
