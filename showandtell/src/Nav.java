@@ -2,14 +2,8 @@ import java.util.ArrayList;
 
 public class Nav {
 
-    int age;
-
-    public String username;
-
-    public String password;
-
-    // public FileIO fileIO = new FileIO();
-    //private TextUI textUI = new TextUI();
+    public FileIO fileIO = new FileIO();
+    private TextUI textUI = new TextUI();
 
     public ArrayList<Serie> series = new ArrayList();
 
