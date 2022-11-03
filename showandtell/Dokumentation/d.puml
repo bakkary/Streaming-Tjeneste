@@ -10,92 +10,90 @@ class Main{
 
 class Nav {
 + File FileIO;
-+ textUI;
++ TextUI;
 + ArrayList series
 + ArrayList movies
++ void login()
 + void logout()
 - String signup()
-
-
 }
 
 Content --> Nav
 Main <-- Nav
 
-
-
-class textFileIO{
+class TextFileIO{
 + ArrayList <String> readtextSeries()
-+ ArrayList <String> readtextMovie()
++ ArrayList <String> readtextFilm()
 + ArrayList <String> readtextUser()
 + String fileException()
 }
 
-class textUI{
+class TextUI{
 - Scanne scan
 + String getUserInput(String msg)
 + int getUserInput(int msg)
 + ArrayList<String> getUserInput(String msg, int iterations)
 
 }
-class user{
+class User{
 - int age
 - String username
 - String password
-- ArrayList watchedMovies
-- ArrayList savedMovies
+- ArrayList<Movies> watchedMovies
+- ArrayList<Movies> savedMovies
 - static int ID
 ..
-+ void login()
 + watchedMovies()
 + savedMovies()
 + void setwatchedMovies(ArrayList watchedMovies)
 + void setsavedMovies(ArrayList SavedMovies)
 ..
-+ user(int age String username String password)
-
-
++ User(int age String username String password)
 }
 
-
-
-
-Nav <-- user
-Nav <-- textFileIO
-Nav <-- textUI
+Nav <-- User
+Nav <-- TextFileIO
+Nav <-- TextUI
 
 Content <--- Movie
-Content <-down- Serie
+Content <-down-  Serie
 
 class Movie{
+- Static int ID
 + int year
++ get String title()
 + int year()
-+ play()
++ get ArrayList category()
++ get float rating()
++ play ()
 }
 
 class Serie{
-- int startDate
-- int endDate
+- static int ID
++ int startDate
++ int endDate
++ get String title()
++  int range(int startDate int endDate)
++ get ArrayList category()
++ get float rating()
 + ArrayList Season[][]
-+ String getYear(int startDate, int endDate)
-+ play(int s, int e)
++ play (ArrayList Season[][])
++ play()
 }
 
 
-object textUser{
+object TextUser{
 ID
 }
 
-
-
-object textMovie{
+object TextFilm{
 Name
 Year
 Category
 Rating
 }
 
-object textSeries{
+object TextSeries{
 Name
 startDate
 endDate
@@ -103,20 +101,13 @@ Category
 Rating
 }
 
-
-
 abstract Content{
-- Static int ID
 + String title
 + ArrayList category
 + Float rating
-+ String getTitle()
-+ ArrayList getCategory()
-+ float getRating()
 }
 
-
-textFileIO <-- textMovie
+textFileIO <-- textFilm
 textFileIO <-- textUser
 textFileIO <-- textSeries
 
