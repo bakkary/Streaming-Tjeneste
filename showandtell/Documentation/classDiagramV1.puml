@@ -1,0 +1,114 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/class-diagram
+
+class Main{
+- static Nav nav
++ static void main()
+
+}
+
+class Nav {
++ File FileIO;
++ TextUI;
++ ArrayList series
++ ArrayList movies
++ void login()
++ void logout()
+- String signup()
+}
+
+Content --> Nav
+Main <-- Nav
+
+class TextFileIO{
++ ArrayList <String> readtextSeries()
++ ArrayList <String> readtextFilm()
++ ArrayList <String> readtextUser()
++ String fileException()
+}
+
+class TextUI{
+- Scanne scan
++ String getUserInput(String msg)
++ int getUserInput(int msg)
++ ArrayList<String> getUserInput(String msg, int iterations)
+
+}
+class User{
+- int age
+- String username
+- String password
+- ArrayList<Movies> watchedMovies
+- ArrayList<Movies> savedMovies
+- static int ID
+..
++ watchedMovies()
++ savedMovies()
++ void setwatchedMovies(ArrayList watchedMovies)
++ void setsavedMovies(ArrayList SavedMovies)
+..
++ User(int age String username String password)
+}
+
+Nav <-- User
+Nav <-- TextFileIO
+Nav <-- TextUI
+
+Content <--- Movie
+Content <-down-  Serie
+
+class Movie{
+- Static int ID
++ int year
++ get String title()
++ int year()
++ get ArrayList category()
++ get float rating()
++ play ()
+}
+
+class Serie{
+- static int ID
++ int startDate
++ int endDate
++ get String title()
++  int range(int startDate int endDate)
++ get ArrayList category()
++ get float rating()
++ ArrayList Season[][]
++ play (ArrayList Season[][])
++ play()
+}
+
+
+object TextUser{
+ID
+}
+
+object TextFilm{
+Name
+Year
+Category
+Rating
+}
+
+object TextSeries{
+Name
+startDate
+endDate
+Category
+Rating
+}
+
+abstract Content{
++ String title
++ ArrayList category
++ Float rating
+}
+
+textFileIO <-- textFilm
+textFileIO <-- textUser
+textFileIO <-- textSeries
+
+@enduml
