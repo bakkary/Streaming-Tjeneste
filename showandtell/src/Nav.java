@@ -15,7 +15,7 @@ public class Nav {
 
     public ArrayList<Movie> movies = new ArrayList();
 
-    public User user = new User;
+    public User user = new User();
 
 
 
