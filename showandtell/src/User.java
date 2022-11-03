@@ -26,7 +26,7 @@ public class User {
     }
 
     public void setwatchedMovies(ArrayList watchedMovies) {
-//add arrayList
+    //add arrayList
     }
 
     public void setsavedMovies(ArrayList SavedMovies) {
