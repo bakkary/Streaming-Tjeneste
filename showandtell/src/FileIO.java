@@ -6,21 +6,6 @@ import java.util.Scanner;
 public class FileIO {
 
 
-    public ArrayList<String> readMovieData() {
-        File file = new File("Data/movies.txt");
-        ArrayList<String> movie = new ArrayList<>();
-        try{ Scanner input = new Scanner(file);
-            input.nextLine();
-
-            while (input.hasNextLine()){
-                movie.add(input.nextLine());
-            }
-        }catch (FileNotFoundException e) {
-             movie = null;
-        }
-        return movie;
-    }
-
 
     public ArrayList<String> readSeriesData() {
         File file = new File("Data/series.txt");
@@ -37,7 +22,29 @@ public class FileIO {
         return series;
     }
 
+
+    public ArrayList<String> readMovieData() {
+        File file = new File("Data/movies.txt");
+        ArrayList<String> movie = new ArrayList<>();
+        try{ Scanner input = new Scanner(file);
+            input.nextLine();
+
+            while (input.hasNextLine()){
+                movie.add(input.nextLine());
+            }
+        }catch (FileNotFoundException e) {
+             movie = null;
+        }
+        return movie;
+    }
+
+<<<<<<< Updated upstream
     public ArrayList<String> readUserData() {
+=======
+
+
+    public String readUserData(String username, String password) {
+>>>>>>> Stashed changes
         File file = new File("Data/users.txt");
         ArrayList<String> users = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
