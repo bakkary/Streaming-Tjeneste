@@ -71,7 +71,7 @@ abstract Content {
 - static int ID
 - String title
 - ArrayList<String> categories
-- Float rating
+- float rating
 + Content(String title, ArrayList categories, float rating, int ID)
 + int getID()
 + String getTitle()
