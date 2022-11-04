@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public abstract class Content {
     private static int ID;
     private String title;
-    private ArrayList<String> category;
+    private ArrayList<String> categories;
     private float rating;
-    Content(String title, ArrayList category, float rating, int ID) {
+    Content(String title, ArrayList categories, float rating, int ID) {
         this.title = title;
-        this.category = category;
+        this.categories = categories;
         this.rating = rating;
         this.ID = ID;
     }
@@ -21,7 +21,7 @@ public abstract class Content {
     }
 
     public ArrayList getCategories() {
-        return category;
+        return categories;
     }
 
     public float getRating() {
