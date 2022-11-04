@@ -29,6 +29,15 @@ public class Nav {
     }
 
     public void logout() {
+        String result = textUI.getUserInput("Are you sure you want to logout? \n Press 1 to logout \n Press 2 to go back");
+                if(Integer.parseInt(result) == 1){
+                    user = null;
+
+                    startMenu();
+        } // else{ mainMenu();
+
+
+        }
 
 
     }
