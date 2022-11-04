@@ -15,11 +15,11 @@ public class User {
         this.age = age;
     }
 
-    public void watchedMovies(Movie watched) {
+    public void setWatchedMovies(Movie watched) {
         watchedMovies.add(watched);
     }
 
-    public void savedMovies(Movie saved) {
+    public void setSavedMovies(Movie saved) {
         savedMovies.add(saved);
     }
 
