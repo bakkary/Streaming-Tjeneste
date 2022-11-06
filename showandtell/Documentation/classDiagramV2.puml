@@ -15,10 +15,6 @@ class Nav {
 + ArrayList<Movie> movies
 + void startMenu()
 - void mainMenu()
-- void searchByTitle()
-- void searchByCategory()
-- void addToWatched()
-- void addToSaved()
 - void login()
 - void logout()
 - void signup()
