@@ -8,6 +8,20 @@ import java.util.Scanner;
 
 public class FileIO {
 
+    public ArrayList<String> readSeriesData() {
+        File file = new File("Data/series.txt");
+        ArrayList<java.lang.String> series = new ArrayList<>();
+        try{ Scanner input = new Scanner(file);
+            input.nextLine();
+
+            while (input.hasNextLine()){
+                series.add(input.nextLine());
+            }
+        }catch (FileNotFoundException e) {
+            series = null;
+        }
+        return series;
+    }
 
     public ArrayList<String> readMovieData() {
         File file = new File("Data/movies.txt");
@@ -25,20 +39,7 @@ public class FileIO {
     }
 
 
-    public ArrayList<String> readSeriesData() {
-        File file = new File("Data/series.txt");
-        ArrayList<String> series = new ArrayList<>();
-        try{ Scanner input = new Scanner(file);
-            input.nextLine();
 
-            while (input.hasNextLine()){
-                series.add(input.nextLine());
-            }
-        }catch (FileNotFoundException e) {
-            series = null;
-        }
-        return series;
-    }
 
     public String readUserData(String username, String password) {
         File file = new File("Data/users.txt");

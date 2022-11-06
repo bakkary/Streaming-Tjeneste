@@ -15,24 +15,20 @@ public class User {
         this.age = age;
     }
 
-    public void watchedMovies() {
-
+    public void setWatchedMovies(Movie watched) {
+        watchedMovies.add(watched);
     }
 
-    public void savedMovies() {
-
+    public void setSavedMovies(Movie saved) {
+        savedMovies.add(saved);
     }
 
-    public void setwatchedMovies(ArrayList watchedMovies) {
-    //add arrayList
+    public ArrayList<Movie> getWatchedMovies() {
+        return watchedMovies;
     }
 
-    public void setsavedMovies(ArrayList SavedMovies) {
-        //add arrayList
-    }
-
-    public User(int age, String username, String password) {
-
+    public ArrayList<Movie> getSavedMovies() {
+        return savedMovies;
     }
 
     public int getAge() {
@@ -51,11 +47,4 @@ public class User {
         return ID;
     }
 
-    public ArrayList<Movie> getWatchedMovies() {
-        return watchedMovies;
-    }
-
-    public ArrayList<Movie> getSavedMovies() {
-        return savedMovies;
-    }
 }
