@@ -55,7 +55,6 @@ public class Main {
         String password = textUI.getUserInput("Please type your password: ");
         int age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
         int ID = fileIO.getRow("userRow");
-        ID++;
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>());
         fileIO.writeUserData(user);
         return user;
