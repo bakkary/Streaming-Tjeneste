@@ -47,8 +47,8 @@ class User {
 - int age
 - String username
 - String password
-- ArrayList<Movie> watchedMovies
-- ArrayList<Movie> savedMovies
+- ArrayList<Integer> watchedMovies
+- ArrayList<Integer> savedMovies
 + User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies)
 + void setWatchedMovie(int watched)
 + void setSavedMovie(int Saved)
@@ -58,7 +58,7 @@ class User {
 + int getAge()
 + String getUsername()
 + String getPassword()
-+ static int getID()
++ int getID()
 }
 
 class Movie {
