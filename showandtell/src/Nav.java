@@ -25,7 +25,7 @@ public class Nav {
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
         String[] arr = result.split(";");
-        user = new User(arr[0],arr[1], Integer.parseInt(arr[2]));
+        user = new User(Integer.parseInt((arr[0])), arr[1], arr[2], Integer.parseInt(arr[3]), arr[4], arr[5], arr[6], arr[7]);
     }
 
     public void logout() {
