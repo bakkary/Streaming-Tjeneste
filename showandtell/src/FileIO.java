@@ -114,8 +114,8 @@ public class FileIO {
 
     public void writeUserData(User u){
         try{
-            FileWriter writer = new FileWriter("Data/users.txt");
-            writer.write(u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";" + u.getWatchedMovies());
+            FileWriter writer = new FileWriter("Data/users.txt", true);
+            writer.write("\n" +u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";");
             writer.close();
         } catch (IOException e){
             System.out.println(e);
