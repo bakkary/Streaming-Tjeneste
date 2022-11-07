@@ -8,7 +8,7 @@ public class User {
     private ArrayList<Integer> watchedMovies = new ArrayList();
     private ArrayList<Integer> savedMovies = new ArrayList();
 
-    public User(int ID, String username, String password, int age, ArrayList watchedMovies, ArrayList savedMovies) {
+    public User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies) {
         this.username = username;
         this.password = password;
         this.age = age;
