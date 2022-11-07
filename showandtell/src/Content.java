@@ -30,6 +30,6 @@ public abstract class Content {
 
     @Override
     public String toString() {
-        return title;
+        return getTitle();
     }
 }
