@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c094548b-8417-4b8a-80db-b53c857cd7e1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/showandtell/src/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Content.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
-    </list>
+    <list default="true" id="c094548b-8417-4b8a-80db-b53c857cd7e1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,11 +19,11 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "E:/Intellij prokelter/IdeaProjects/E22Matador-main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;E:/Intellij prokelter/IdeaProjects/E22Matador-main&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <servers />
   </component>
