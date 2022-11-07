@@ -3,8 +3,23 @@ import java.util.*;
 
 public class FileIO {
 
+    public ArrayList<String> readSeriesData() {
+        File file = new File("showandtell/Data/series.txt");
+        ArrayList<java.lang.String> series = new ArrayList<>();
+        try{ Scanner input = new Scanner(file);
+            input.nextLine();
+
+            while (input.hasNextLine()){
+                series.add(input.nextLine());
+            }
+        }catch (FileNotFoundException e) {
+            series = null;
+        }
+        return series;
+    }
+
     public Series readSeriesData(String field, String query) {
-        File file = new File("Data/series.txt");
+        File file = new File("showandtell/Data/series.txt");
         try {
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
@@ -30,7 +45,7 @@ public class FileIO {
     }
 
     public Movie readMovieData(String field, String query) {
-        File file = new File("Data/movies.txt");
+        File file = new File("showandtell/Data/movies.txt");
         try {
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
@@ -82,8 +97,9 @@ public class FileIO {
         String[] years = s[2].trim().split("-");
         int startDate = Integer.parseInt(years[0]);
         int endDate = 0;
-        if(years.length > 1)
+        if(years.length > 1) {
             endDate = Integer.parseInt(years[1]);
+        }
         ArrayList<String> seasons = new ArrayList<>();
         return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"));
 
@@ -93,10 +109,10 @@ public class FileIO {
 
 
     public String readUserData(String username, String password) {
-        File file = new File("Data/users.txt");
+        File file = new File("showandtell/Data/users.txt");
         ArrayList<String> users = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
-//            input.nextLine();
+            input.nextLine();
             while (input.hasNextLine()){
                 users.add(input.nextLine());
             }
@@ -114,8 +130,8 @@ public class FileIO {
 
     public void writeUserData(User u){
         try{
-            FileWriter writer = new FileWriter("Data/users.txt", true);
-            writer.write("\n" +u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";");
+            FileWriter writer = new FileWriter("showandtell/Data/users.txt", true);
+            writer.write(u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";,;,;,;,;\n");
             writer.close();
         } catch (IOException e){
             System.out.println(e);
@@ -123,7 +139,7 @@ public class FileIO {
     }
 
     public void updateUserData(User u) {
-        File file = new File("Data/users.txt");
+        File file = new File("showandtell/Data/users.txt");
         ArrayList<String> rows = new ArrayList<>();
         try {
             Scanner input = new Scanner(file);
@@ -146,7 +162,7 @@ public class FileIO {
                     for (int j = 0; j < u.getSavedMovies().size(); j++) {
                         savedStr += u.getSavedMovies().get(j) + ",";
                     }
-                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedStr + ";" + savedStr + ";");
+                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedStr + ";" + savedStr + ";,;,;");
                 }
                 writer.write(rows.get(i) + "\n");
             }
@@ -158,25 +174,34 @@ public class FileIO {
     }
 
     public int getRow(String rowType) {
-        File file = new File("Data/systemInfo.txt");
+        File file = new File("showandtell/Data/systemInfo.txt");
         ArrayList<String> rows = new ArrayList<>();
-        try{ Scanner input = new Scanner(file);
-            input.nextLine();
-
+        int index = 0;
+        try{
+            Scanner input = new Scanner(file);
             while (input.hasNextLine()){
                 rows.add(input.nextLine());
             }
 
-            for(String s : rows){
-                String[] values = s.split(";");
+
+            FileWriter writer = new FileWriter(file);
+            writer.write(rows.get(0) + "\n");
+            for(int i = 1; i < rows.size(); i++){
+                String[] values = rows.get(i).split(";");
                 if(values[0].equalsIgnoreCase(rowType)){
-                    return Integer.parseInt(values[1]);
+                    index = Integer.parseInt(values[1]);
+                rows.set(i, "" + values[0] + ";" + (index + 1) +";");
                 }
+                writer.write(rows.get(i) + "\n");
             }
-        }catch (FileNotFoundException e) {
+
+
+            writer.close();
+        }catch (IOException e) {
             rows = null;
         }
-        return -1;
+        return index;
     }
+
 }
 

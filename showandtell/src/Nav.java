@@ -40,14 +40,14 @@ public class Nav {
 
     private void searchByTitle() {
         String input = textUI.getUserInput("write the title of the movie you wish to watch");
-        Movie n = fileIO.readMovieData("Title", input);
+        Movie n = fileIO.readMovieData("title", input);
         movieAction(n);
     }
 
 
     private void movieAction(Movie mov) {
-        ArrayList<String> options = new ArrayList<String>(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
-        String input = textUI.getUserInput("" + mov.getTitle() + "Please select one of the following", options);
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
+        String input = textUI.getUserInput("" + mov.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
             case 1:
                 System.out.println(mov);
@@ -72,12 +72,12 @@ public class Nav {
             movies.add(movie);
 
         }
-
+        ArrayList<String> options = new ArrayList();
         for (int i = 0; i < movies.size(); i++) {
-            System.out.println(movies.get(i));
-
-
+            options.add(movies.get(i).getTitle());
         }
+        String input = textUI.getUserInput("Please select your movie", options);
+        movieAction(movies.get(Integer.parseInt(input)));
     }
 
 
