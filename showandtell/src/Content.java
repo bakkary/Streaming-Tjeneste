@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class Content {
-    private static int ID;
+    private int ID;
     private String title;
     private ArrayList<String> categories;
     private float rating;
@@ -26,5 +26,10 @@ public abstract class Content {
 
     public float getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return getTitle();
     }
 }
