@@ -11,7 +11,7 @@ public class Nav {
         this.u = u;
     }
 
-    private void mainMenu(){
+    public void mainMenu(){
 
     }
 
