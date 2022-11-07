@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
 
     static FileIO fileIO;
@@ -28,7 +31,11 @@ public class Main {
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
         String[] arr = result.split(";");
-        User user = new User(arr[0],arr[1], Integer.parseInt(arr[2]));
+        String[] watched = arr[4].split(",");
+        ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watched));
+        String[] saved = arr[5].split(",");
+        ArrayList<String> savedMovies = new ArrayList<>(Arrays.asList(saved));
+        User user = new User(arr[1],arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies);
         return user;
     }
 
@@ -46,12 +53,13 @@ public class Main {
 
     }
 */
-        public static User signUp() {
+    private static User signUp() {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         int age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
-
-        User user = new User(username, password, age);
+        int ID = fileIO.getRow("userRow");
+        ID++;
+        User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>());
         fileIO.writeUserData(user);
         return user;
     }
