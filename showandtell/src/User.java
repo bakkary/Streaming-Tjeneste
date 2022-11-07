@@ -33,8 +33,8 @@ public class User {
         return savedMovies;
     }
 
-    public void removeSavedMovie(int ID){
-
+    public void removeSavedMovie(int ID) {
+        savedMovies.remove(Integer.valueOf(ID));
     }
 
     public int getAge() {
@@ -49,7 +49,7 @@ public class User {
         return password;
     }
 
-    public static int getID() {
+    public int getID() {
         return ID;
     }
 
