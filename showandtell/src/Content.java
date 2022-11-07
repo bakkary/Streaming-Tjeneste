@@ -17,6 +17,7 @@ public abstract class Content {
     }
 
     public String getTitle() {
+
         return title;
     }
 

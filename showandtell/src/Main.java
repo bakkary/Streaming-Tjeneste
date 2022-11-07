@@ -3,8 +3,8 @@ import java.util.Arrays;
 
 public class Main {
 
-    static FileIO fileIO;
-    static TextUI textUI;
+    static FileIO fileIO = new FileIO();
+    static TextUI textUI = new TextUI();
 
 
 
