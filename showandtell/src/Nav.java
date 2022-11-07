@@ -22,12 +22,32 @@ public class Nav {
 
     }
 
-    private void viewSaved(){
+    private void viewSaved() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        for (int i = 0; i < u.getSavedMovies().size(); i++) {
+            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getSavedMovies().get(i)));
+            movies.add(movie);
 
+        }
+
+        for (int i = 0; i < movies.size(); i++) {
+            System.out.println(movies.get(i));
+
+
+        }
     }
 
-    private void viewWatched(){
 
+    private void viewWatched(){
+       ArrayList<Movie> movies = new ArrayList<>();
+       for(int i = 0; i < u.getWatchedMovies().size(); i++){
+           Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
+           movies.add(movie);
+       }
+
+       for(int i = 0 ; i < movies.size(); i++){
+           System.out.println(movies.get(i));
+       }
     }
 
 
