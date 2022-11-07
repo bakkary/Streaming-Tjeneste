@@ -1,6 +1,7 @@
 public class Main {
+    private static Nav nav = new Nav();
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        nav.startMenu();
     }
 }
