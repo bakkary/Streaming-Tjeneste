@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Nav {
 
@@ -16,6 +17,9 @@ public class Nav {
     }
 
     private void searchByTitle(){
+        String input = textUI.getUserInput("write the title of the movie you wish to watch");
+        Movie n = fileIO.readMovieData("Title", input);
+        movieAction(n);
 
     }
     private void movieAction(){
