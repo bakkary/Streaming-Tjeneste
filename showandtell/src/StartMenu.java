@@ -32,11 +32,16 @@ public class StartMenu {
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
         String[] arr = result.split(";");
-        String[] watched = arr[4].split(",");
-        ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watched));
-        String[] saved = arr[5].split(",");
-        ArrayList<String> savedMovies = new ArrayList<>(Arrays.asList(saved));
-        User user = new User(arr[1],arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies);
+        String[] watchedmovies = arr[4].split(",");
+        ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watchedmovies));
+        String[] savedmovies = arr[5].split(",");
+        ArrayList<String> savedMovies = new ArrayList<>(Arrays.asList(savedmovies));
+        String[] watchedseries = arr[6].split(",");
+        ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
+        String[] savedseries = arr[7].split(",");
+        ArrayList<String> savedSeries= new ArrayList<>(Arrays.asList(savedseries));
+
+        User user = new User(arr[1],arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
         return user;
     }
 
@@ -62,7 +67,7 @@ public class StartMenu {
         String password = textUI.getUserInput("Please type your password: ");
         int age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
         int ID = fileIO.getRow("userRow");
-        User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>());
+        User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>(), new ArrayList(), new ArrayList());
         fileIO.writeUserData(user);
         return user;
     }

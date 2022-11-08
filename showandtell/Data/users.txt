@@ -1,6 +1,2 @@
 ID;username;password;age;watchedMovies;savedMovies;watchedSeries;savedSeries;
-1;f;d;22;,;,;,;,;
-2;chris;11;22;,;,;,;,;
-3;chris;33;22;,;,;,;,;
-4;jakob;123;65;22,22,22,;;,;,;
-5;karsten ;jakob;22;,;,;,;,;
+3;f;1;22;22,;;,;,;
