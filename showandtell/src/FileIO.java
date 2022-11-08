@@ -59,9 +59,10 @@ public class FileIO {
             while (input.hasNextLine()) {
                 String movie = input.nextLine();
                 String[] values = movie.split(";");
-                if (values[index].equalsIgnoreCase(query)) {
+                if (values[index].includes(query)) {
+                    
+                }else if (values[index].equalsIgnoreCase(query))
                     return movie(values);
-                }
             }
 
 
@@ -203,5 +204,9 @@ public class FileIO {
         return index;
     }
 
-}
+
+    
+   
+
+   }
 
