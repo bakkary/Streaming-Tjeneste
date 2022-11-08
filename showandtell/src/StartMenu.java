@@ -31,6 +31,10 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
+        if( result.equalsIgnoreCase("")){
+            System.out.println("Wrong username or password");
+            login();
+        }
         String[] arr = result.split(";");
         String[] watchedmovies = arr[4].split(",");
         ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watchedmovies));
@@ -65,11 +69,20 @@ public class StartMenu {
     private User signUp() {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
-        int age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
+        int age = age();
         int ID = fileIO.getRow("userRow");
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>(), new ArrayList(), new ArrayList());
         fileIO.writeUserData(user);
         return user;
     }
+    private int age() {
+        int age = 0;
+        try {
+            age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
+        } catch (NumberFormatException n) {
+            System.out.println("This is not a number");
+            age();
+        }
+        return age;
 
 }
