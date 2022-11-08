@@ -30,13 +30,18 @@ public class Nav {
                     //searchByCategory();
                     break;
                 case 4:
-                    viewSaved();
+                    viewSavedMovie();
                     break;
                 case 5:
-                    viewWatched();
+                    viewWatchedMovie();
                     break;
+                case 6:
+                   viewSavedSeries();
+                    break;
+                case 7:
+                   viewWatchedSeries();
                 default:
-                    System.out.println("try again");
+                    System.out.println("Please try again");
             }
         }
     }
@@ -95,7 +100,7 @@ public class Nav {
         fileIO.updateUserData(u);
     }
 
-    private void viewSaved(Movie mov){
+    private void viewSavedMovie(){
         ArrayList<Movie> movies = new ArrayList<>();
         for (int i = 0; i < u.getSavedMovies().size(); i++) {
             Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getSavedMovies().get(i)));
@@ -110,7 +115,7 @@ public class Nav {
         movieAction(movies.get(Integer.parseInt(input)));
     }
 
-    private void viewSaved(Series ser){
+    private void viewSavedSeries(){
         ArrayList<Series> series = new ArrayList<>();
         for (int i = 0; i < u.getSavedSeries().size(); i++) {
             Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getSavedSeries().get(i)));
@@ -125,7 +130,7 @@ public class Nav {
         seriesAction(series.get(Integer.parseInt(input)));
     }
 
-    private void viewWatched(Movie mov){
+    private void viewWatchedMovie(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
@@ -137,7 +142,7 @@ public class Nav {
        }
     }
 
-    private void viewWatched(Series ser){
+    private void viewWatchedSeries(){
         ArrayList<Series> series = new ArrayList<>();
         for(int i = 0; i < u.getWatchedSeries().size(); i++){
             Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
