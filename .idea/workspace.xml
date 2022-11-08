@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c094548b-8417-4b8a-80db-b53c857cd7e1" name="Changes" comment="">
+    <list default="true" id="8091e037-0840-4557-81b3-979cef8e6090" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/Data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/FileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,39 +41,29 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="2HDcYkjJxysbJ5KxLdPz1RNgSiv" />
+  <component name="ProjectId" id="2HGGKPgjzg5PdopTR8nTOiyxAzx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Intellij prokelter/IdeaProjects/E22Matador-main&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/chz/OneDrive/Dokumenter/GitHub/Streaming-Tjeneste&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Streaming-Tjeneste" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c094548b-8417-4b8a-80db-b53c857cd7e1" name="Changes" comment="" />
-      <created>1667823144964</created>
+      <changelist id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="" />
+      <created>1667903941554</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1667823144964</updated>
+      <updated>1667903941554</updated>
     </task>
     <servers />
   </component>
@@ -78,15 +77,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class Nav {
 
+    StartMenu start = new StartMenu();
     private User u;
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
@@ -13,11 +14,13 @@ public class Nav {
     }
 
     public void mainMenu() {
+
         String input = "";
-        while (!input.equalsIgnoreCase("Q")) {
+        while (!input.equalsIgnoreCase("6")) {
 
 
             ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved content", "View watched content", "Logout"));
+
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
                 case 1:
@@ -33,13 +36,16 @@ public class Nav {
                     viewSavedMovie();
                     break;
                 case 5:
-                    viewWatchedMovie();
+                    viewSavedSeries();
                     break;
                 case 6:
-                   viewSavedSeries();
+                    viewWatchedMovie();
                     break;
                 case 7:
                    viewWatchedSeries();
+                case 8:
+                    start.logout();
+                    break;
                 default:
                     System.out.println("Please try again");
             }

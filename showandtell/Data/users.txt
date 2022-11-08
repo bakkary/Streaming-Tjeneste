@@ -1,1 +1,3 @@
 ID;username;password;age;watchedMovies;savedMovies;watchedSeries;savedSeries;
+3;f;1;22;22,;;,;,;
+4;t;w;22;22,;;,;,;
