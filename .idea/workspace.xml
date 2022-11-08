@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/showandtell/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/Data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +18,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/showandtell/src/Content.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/showandtell/src/FileIO.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/showandtell/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/showandtell/src/Movie.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -29,17 +31,20 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2HGGKPgjzg5PdopTR8nTOiyxAzx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/chz/OneDrive/Dokumenter/GitHub/Streaming-Tjeneste"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/chz/OneDrive/Dokumenter/GitHub/Streaming-Tjeneste&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

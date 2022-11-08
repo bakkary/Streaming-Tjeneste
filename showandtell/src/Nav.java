@@ -16,10 +16,10 @@ public class Nav {
     public void mainMenu() {
 
         String input = "";
-        while (!input.equalsIgnoreCase("6")) {
+        while (!input.equalsIgnoreCase("8")) {
 
 
-            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved content", "View watched content", "Logout"));
+            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved movie", "View saved series ", "View watched movies", "View watched series ", "Logout"));
 
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
@@ -39,12 +39,14 @@ public class Nav {
                     viewSavedSeries();
                     break;
                 case 6:
-                    start.logout();
-
                     viewWatchedMovie();
                     break;
                 case 7:
                    viewWatchedSeries();
+                   break;
+                case 8:
+                    start.logout();
+                    break;
 
                 default:
                     System.out.println("Please try again");
