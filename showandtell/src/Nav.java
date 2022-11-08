@@ -17,19 +17,22 @@ public class Nav {
         while (!input.equalsIgnoreCase("Q")) {
 
 
-            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by title", "Search by category", "View saved content", "View watched content"));
+            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved content", "View watched content"));
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
                 case 1:
-                    searchByTitle();
+                    searchByTitle(true);
                     break;
                 case 2:
-                    //searchByCategory();
+                    searchByTitle(false);
                     break;
                 case 3:
-                    viewSaved();
+                    //searchByCategory();
                     break;
                 case 4:
+                    viewSaved();
+                    break;
+                case 5:
                     viewWatched();
                     break;
                 default:
@@ -38,12 +41,19 @@ public class Nav {
         }
     }
 
-    private void searchByTitle() {
-        String input = textUI.getUserInput("write the title of the movie you wish to watch");
-        Movie n = fileIO.readMovieData("title", input);
-        movieAction(n);
-    }
+    private void searchByTitle(boolean isMovie) {
 
+
+        if(isMovie) {
+            String input = textUI.getUserInput("write the title of the movie you wish to watch");
+            Movie n = fileIO.readMovieData("title", input);
+            movieAction(n);
+        }else{
+            String input = textUI.getUserInput("write the title of the series you wish to watch");
+            Series s = fileIO.readSeriesData("title", input);
+            movieAction(s);
+        }
+    }
 
     private void movieAction(Movie mov) {
         ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
@@ -80,7 +90,6 @@ public class Nav {
         movieAction(movies.get(Integer.parseInt(input)));
     }
 
-
     private void viewWatched(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
@@ -92,10 +101,4 @@ public class Nav {
            System.out.println(movies.get(i));
        }
     }
-
-
-
-
-
-
 }
