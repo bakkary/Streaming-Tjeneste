@@ -59,10 +59,9 @@ public class FileIO {
             while (input.hasNextLine()) {
                 String movie = input.nextLine();
                 String[] values = movie.split(";");
-                if (values[index].includes(query)) {
-                    
-                }else if (values[index].equalsIgnoreCase(query))
+                if (values[index].equalsIgnoreCase(query)) {
                     return movie(values);
+                }
             }
 
 
@@ -208,5 +207,26 @@ public class FileIO {
     
    
 
-   }
+    public void searchByCategory(){
+           System.out.println(msg);
+            Scanner scan = new Scanner(System.in);
+            if (field == "categories"){
+            ArrayList<String> categories = new ArrayList<>();
+            String[] categoriesArr = c[3].split(",");
+            categories.addAll(Arrays.asList(categoriesArr));
+            
+            System.out.println(categories(i));
+         }else{
+            searchByCategory(field);
+
+
+         }
+
+        String input = scan.nextLine();
+
+        return input;
+
+    
+    }
+}
 
