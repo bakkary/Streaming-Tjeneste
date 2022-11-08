@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,7 +28,7 @@ public class Nav {
                     searchByTitle();
                     break;
                 case 2:
-                    //searchByCategory();
+                    searchByCategory();
                     break;
                 case 3:
                     viewSaved();
@@ -45,7 +49,21 @@ public class Nav {
     }
 
 
-
+public void  searchByCategory(){
+    String path = "showandtell/Data/movies.txt" ;
+    String line = "";
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        while((line = br.readLine()) != null ){
+            String[] values = line.split(";");
+            System.out.println("categories " + values[3]);
+        }
+    } catch (FileNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+    }
 
     private void movieAction(Movie mov) {
         ArrayList<String> options = new ArrayList<String>(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
