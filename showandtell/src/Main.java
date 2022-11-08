@@ -27,6 +27,13 @@ public class Main {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
+
+        if(result.equalsIgnoreCase("")){
+            System.out.println("Please try again");
+            login();
+        }
+
+
         String[] arr = result.split(";");
         String[] watched = arr[4].split(",");
         ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watched));
@@ -35,6 +42,7 @@ public class Main {
         User user = new User(arr[1],arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies);
         return user;
     }
+
 
     /*public static User logout() {
         String result = textUI.getUserInput("Are you sure you want to logout? \n Press 1 to logout \n Press 2 to go back");
@@ -53,12 +61,28 @@ public class Main {
     private static User signUp() {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
-        int age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
+        int age = age();
         int ID = fileIO.getRow("userRow");
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>());
         fileIO.writeUserData(user);
         return user;
+
     }
+
+    private static int age() {
+        int age = 0;
+        try {
+            age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
+        } catch (NumberFormatException n) {
+            System.out.println("This is not a number");
+            age();
+        }
+        return age;
+
+
+
+    }
+
 
     
 }
