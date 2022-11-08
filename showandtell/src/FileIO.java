@@ -151,7 +151,6 @@ public class FileIO {
             FileWriter writer = new FileWriter(file);
             writer.write(rows.get(0) + "\n");
             for (int i = 1; i < rows.size(); i++) {
-                System.out.println(rows.get(i));
                 String[] values = rows.get(i).split(";");
                 if(Integer.parseInt(values[0]) == u.getID()) {
                     String watchedStr = "";
