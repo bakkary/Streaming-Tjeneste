@@ -8,21 +8,26 @@ public class User {
     private ArrayList<Integer> watchedMovies = new ArrayList();
     private ArrayList<Integer> savedMovies = new ArrayList();
 
-    public User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies) {
+    private ArrayList<Integer> watchedSeries = new ArrayList();
+    private ArrayList<Integer> savedSeries = new ArrayList();
+
+    public User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies, ArrayList watchedSeries, ArrayList savedSeries) {
         this.username = username;
         this.password = password;
         this.age = age;
         this.ID = ID;
         this.watchedMovies = watchedMovies;
         this.savedMovies = savedMovies;
+        this.watchedSeries = watchedSeries;
+        this.savedSeries = savedSeries;
     }
 
-    public void setWatchedMovies(Integer watched) {
-        watchedMovies.add(watched);
+    public void setWatchedMovies(Integer watchedMov) {
+        watchedMovies.add(watchedMov);
     }
 
-    public void setSavedMovies(Integer saved) {
-        savedMovies.add(saved);
+    public void setSavedMovies(Integer savedMov) {
+        savedMovies.add(savedMov);
     }
 
     public ArrayList<Integer> getWatchedMovies() {
@@ -36,6 +41,27 @@ public class User {
     public void removeSavedMovie(int ID) {
         savedMovies.remove(Integer.valueOf(ID));
     }
+
+    public void setWatchedSeries(Integer watchedSer) {
+        watchedMovies.add(watchedSer);
+    }
+
+    public void setSavedSeries(Integer savedSer) {
+        savedMovies.add(savedSer);
+    }
+
+    public ArrayList<Integer> getWatchedSeries() {
+        return watchedSeries;
+    }
+
+    public ArrayList<Integer> getSavedSeries() {
+        return savedSeries;
+    }
+
+    public void removeSavedSeries(int ID) {
+        savedSeries.remove(Integer.valueOf(ID));
+    }
+
 
     public int getAge() {
         return age;
