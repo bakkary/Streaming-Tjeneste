@@ -6,22 +6,25 @@ public class StartMenu {
     static FileIO fileIO = new FileIO();
     static TextUI textUI = new TextUI();
 
-    public StartMenu(){
-
+    public StartMenu() {
 
 
     }
 
 
-    public void RunMenu(){
+    public void RunMenu() {
         User u = null;
 
         String result = textUI.getUserInput("Welcome! \n Press 1 to sign up \n Press 2 to log in");
-        if(Integer.parseInt(result) == 1){
-            u =  signUp();
-        }else{
+        if (Integer.parseInt(result) == 1) {
+            u = signUp();
+        } else if (Integer.parseInt(result) == 2) {
             u = login();
+        } else {
+            System.out.println("please try again");
+            RunMenu();
         }
+
 
         Nav nav = new Nav(u);
         nav.mainMenu();
@@ -31,7 +34,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
-        if( result.equalsIgnoreCase("")){
+        if (result.equalsIgnoreCase("")) {
             System.out.println("Wrong username or password");
             login();
         }
@@ -43,9 +46,9 @@ public class StartMenu {
         String[] watchedseries = arr[6].split(",");
         ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
         String[] savedseries = arr[7].split(",");
-        ArrayList<String> savedSeries= new ArrayList<>(Arrays.asList(savedseries));
+        ArrayList<String> savedSeries = new ArrayList<>(Arrays.asList(savedseries));
 
-        User user = new User(arr[1],arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
+        User user = new User(arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
         return user;
     }
 
@@ -57,7 +60,11 @@ public class StartMenu {
         if (Integer.parseInt(result) == 1) {
             RunMenu();
 
-        }else{
+        } else if (Integer.parseInt(result) == 2) {
+            u = login();
+        } else {
+            System.out.println("please try again");
+            RunMenu();
 
             nav.mainMenu();
         }
@@ -75,6 +82,7 @@ public class StartMenu {
         fileIO.writeUserData(user);
         return user;
     }
+
     private int age() {
         int age = 0;
         try {
@@ -85,4 +93,5 @@ public class StartMenu {
         }
         return age;
 
+    }
 }
