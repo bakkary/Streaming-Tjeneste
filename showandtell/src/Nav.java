@@ -17,33 +17,48 @@ public class Nav {
         while (!input.equalsIgnoreCase("Q")) {
 
 
-            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by title", "Search by category", "View saved content", "View watched content"));
+            ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved content", "View watched content", "Logout"));
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
                 case 1:
-                    searchByTitle();
+                    searchByTitle(true);
                     break;
                 case 2:
-                    //searchByCategory();
+                    searchByTitle(false);
                     break;
                 case 3:
-                    viewSaved();
+                    //searchByCategory();
                     break;
                 case 4:
-                    viewWatched();
+                    viewSavedMovie();
                     break;
+                case 5:
+                    viewWatchedMovie();
+                    break;
+                case 6:
+                   viewSavedSeries();
+                    break;
+                case 7:
+                   viewWatchedSeries();
                 default:
-                    System.out.println("try again");
+                    System.out.println("Please try again");
             }
         }
     }
 
-    private void searchByTitle() {
-        String input = textUI.getUserInput("write the title of the movie you wish to watch");
-        Movie n = fileIO.readMovieData("title", input);
-        movieAction(n);
-    }
+    private void searchByTitle(boolean isMovie) {
 
+
+        if(isMovie) {
+            String input = textUI.getUserInput("write the title of the movie you wish to watch");
+            Movie n = fileIO.readMovieData("title", input);
+            movieAction(n);
+        }else{
+            String input = textUI.getUserInput("write the title of the series you wish to watch");
+            Series s = fileIO.readSeriesData("title", input);
+            seriesAction(s);
+        }
+    }
 
     private void movieAction(Movie mov) {
         ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
@@ -65,7 +80,27 @@ public class Nav {
         fileIO.updateUserData(u);
     }
 
-    private void viewSaved(){
+    private void seriesAction(Series ser) {
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play series", "Add series til list", "Remove series from list"));
+        String input = textUI.getUserInput("" + ser.getTitle() + " Please select one of the following", options);
+        switch (Integer.parseInt(input)) {
+            case 1:
+                System.out.println(ser);
+                u.setWatchedSeries(ser.getID());
+                break;
+            case 2:
+                u.setSavedSeries(ser.getID());
+                break;
+            case 3:
+                u.removeSavedSeries(ser.getID());
+                break;
+            default:
+                System.out.println("Please try again");
+        }
+        fileIO.updateUserData(u);
+    }
+
+    private void viewSavedMovie(){
         ArrayList<Movie> movies = new ArrayList<>();
         for (int i = 0; i < u.getSavedMovies().size(); i++) {
             Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getSavedMovies().get(i)));
@@ -80,8 +115,22 @@ public class Nav {
         movieAction(movies.get(Integer.parseInt(input)));
     }
 
+    private void viewSavedSeries(){
+        ArrayList<Series> series = new ArrayList<>();
+        for (int i = 0; i < u.getSavedSeries().size(); i++) {
+            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getSavedSeries().get(i)));
+            series.add(serie);
 
-    private void viewWatched(){
+        }
+        ArrayList<String> options = new ArrayList();
+        for (int i = 0; i < series.size(); i++) {
+            options.add(series.get(i).getTitle());
+        }
+        String input = textUI.getUserInput("Please select your series", options);
+        seriesAction(series.get(Integer.parseInt(input)));
+    }
+
+    private void viewWatchedMovie(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
@@ -93,9 +142,15 @@ public class Nav {
        }
     }
 
+    private void viewWatchedSeries(){
+        ArrayList<Series> series = new ArrayList<>();
+        for(int i = 0; i < u.getWatchedSeries().size(); i++){
+            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
+            series.add(serie);
+        }
 
-
-
-
-
+        for(int i = 0 ; i < series.size(); i++){
+            System.out.println(series.get(i));
+        }
+    }
 }

@@ -1,4 +1,3 @@
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class User {
@@ -12,8 +11,7 @@ public class User {
     private ArrayList<Integer> watchedSeries = new ArrayList();
     private ArrayList<Integer> savedSeries = new ArrayList();
 
-
-    public User(int ID, String username, String password, int age, ArrayList watchedMovies, ArrayList savedMovies, ArrayList watchedSeries, ArrayList savedSeries) {
+    public User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies, ArrayList watchedSeries, ArrayList savedSeries) {
         this.username = username;
         this.password = password;
         this.age = age;
@@ -22,10 +20,6 @@ public class User {
         this.savedMovies = savedMovies;
         this.watchedSeries = watchedSeries;
         this.savedSeries = savedSeries;
-    }
-
-    public User(String username, String password, int age, int id, ArrayList<Object> watchedMovies, ArrayList<Object> savedMovies) {
-        
     }
 
     public void setWatchedMovies(Integer watchedMov) {
@@ -49,7 +43,7 @@ public class User {
     }
 
     public void setWatchedSeries(Integer watchedSer) {
-        watchedSeries.add(watchedSer);
+        watchedMovies.add(watchedSer);
     }
 
     public void setSavedSeries(Integer savedSer) {
@@ -67,6 +61,7 @@ public class User {
     public void removeSavedSeries(int ID) {
         savedSeries.remove(Integer.valueOf(ID));
     }
+
 
     public int getAge() {
         return age;
