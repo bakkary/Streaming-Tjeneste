@@ -151,18 +151,37 @@ public class FileIO {
             FileWriter writer = new FileWriter(file);
             writer.write(rows.get(0) + "\n");
             for (int i = 1; i < rows.size(); i++) {
-                System.out.println(rows.get(i));
                 String[] values = rows.get(i).split(";");
                 if(Integer.parseInt(values[0]) == u.getID()) {
-                    String watchedStr = "";
+                    String watchedMovieStr = "";
                     for (int j = 0; j < u.getWatchedMovies().size(); j++) {
-                        watchedStr += u.getWatchedMovies().get(j) + ",";
+                        watchedMovieStr += u.getWatchedMovies().get(j) + ",";
                     }
-                    String savedStr = "";
+                    if (watchedMovieStr.equalsIgnoreCase("")) {
+                        watchedMovieStr = ",";
+                    }
+                    String savedMovieStr = "";
                     for (int j = 0; j < u.getSavedMovies().size(); j++) {
-                        savedStr += u.getSavedMovies().get(j) + ",";
+                        savedMovieStr += u.getSavedMovies().get(j) + ",";
                     }
-                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedStr + ";" + savedStr + ";,;,;");
+                    if (savedMovieStr.equalsIgnoreCase("")) {
+                        savedMovieStr = ",";
+                    }
+                    String watchedSeriesStr = "";
+                    for (int j = 0; j < u.getWatchedSeries().size(); j++) {
+                        watchedSeriesStr += u.getWatchedSeries().get(j) + ",";
+                    }
+                    if (watchedSeriesStr.equalsIgnoreCase("")) {
+                        watchedSeriesStr = ",";
+                    }
+                    String savedSeriesStr = "";
+                    for (int j = 0; j < u.getSavedSeries().size(); j++) {
+                        savedSeriesStr += u.getSavedSeries().get(j) + ",";
+                    }
+                    if (savedSeriesStr.equalsIgnoreCase("")) {
+                        savedSeriesStr = ",";
+                    }
+                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedMovieStr + ";" + savedMovieStr + ";" + watchedSeriesStr + ";" + savedSeriesStr +";");
                 }
                 writer.write(rows.get(i) + "\n");
             }

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a07b6adb-089e-4eb6-8e41-493fed44b77b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/movies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/series.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nav.java" afterDir="false" />
-    </list>
+    <list default="true" id="a07b6adb-089e-4eb6-8e41-493fed44b77b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +40,11 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/yildirim/Documents/GitHub/Streaming-Tjeneste/showandtell&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Data" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
