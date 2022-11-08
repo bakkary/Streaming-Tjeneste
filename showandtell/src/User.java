@@ -43,11 +43,11 @@ public class User {
     }
 
     public void setWatchedSeries(Integer watchedSer) {
-        watchedMovies.add(watchedSer);
+        watchedSeries.add(watchedSer);
     }
 
     public void setSavedSeries(Integer savedSer) {
-        savedMovies.add(savedSer);
+        savedSeries.add(savedSer);
     }
 
     public ArrayList<Integer> getWatchedSeries() {

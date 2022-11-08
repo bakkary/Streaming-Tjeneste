@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/systemInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/Data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/FileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +53,15 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/chz/OneDrive/Dokumenter/GitHub/Streaming-Tjeneste&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Streaming-Tjeneste" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

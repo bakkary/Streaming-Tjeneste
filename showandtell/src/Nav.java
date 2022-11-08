@@ -61,7 +61,7 @@ public class Nav {
             String input = textUI.getUserInput("write the title of the movie you wish to watch");
             Movie n = fileIO.readMovieData("title", input);
             movieAction(n);
-        }else{
+        } else {
             String input = textUI.getUserInput("write the title of the series you wish to watch");
             Series s = fileIO.readSeriesData("title", input);
             seriesAction(s);
@@ -69,7 +69,7 @@ public class Nav {
     }
 
     private void movieAction(Movie mov) {
-        ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie til list", "Remove movie from list"));
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie to list", "Remove movie from list"));
         String input = textUI.getUserInput("" + mov.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
             case 1:
@@ -89,7 +89,7 @@ public class Nav {
     }
 
     private void seriesAction(Series ser) {
-        ArrayList<String> options = new ArrayList(Arrays.asList("Play series", "Add series til list", "Remove series from list"));
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play series", "Add series to list", "Remove series from list"));
         String input = textUI.getUserInput("" + ser.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
             case 1:
@@ -120,7 +120,7 @@ public class Nav {
             options.add(movies.get(i).getTitle());
         }
         String input = textUI.getUserInput("Please select your movie", options);
-        movieAction(movies.get(Integer.parseInt(input)));
+        movieAction(movies.get(Integer.parseInt(input) - 1));
     }
 
     private void viewSavedSeries(){
@@ -135,7 +135,7 @@ public class Nav {
             options.add(series.get(i).getTitle());
         }
         String input = textUI.getUserInput("Please select your series", options);
-        seriesAction(series.get(Integer.parseInt(input)));
+        seriesAction(series.get(Integer.parseInt(input) - 1));
     }
 
     private void viewWatchedMovie(){
