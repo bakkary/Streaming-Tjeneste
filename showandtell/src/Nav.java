@@ -24,10 +24,10 @@ public class Nav {
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
                 case 1:
-                    searchByTitle(true);
+                    searchByTitle();
                     break;
                 case 2:
-                    searchByTitle(false);
+                    //searchByCategory();
                     break;
                 case 3:
                     searchByCategory();
@@ -49,7 +49,7 @@ public class Nav {
                     break;
 
                 default:
-                    System.out.println("Please try again");
+                    System.out.println("try again");
             }
         }
     }
@@ -141,11 +141,6 @@ public class Nav {
         movieAction(movies.get(Integer.parseInt(input) - 1));
     }
 
-    private void viewSavedSeries(){
-        ArrayList<Series> series = new ArrayList<>();
-        for (int i = 0; i < u.getSavedSeries().size(); i++) {
-            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getSavedSeries().get(i)));
-            series.add(serie);
 
         }
         ArrayList<String> options = new ArrayList();
@@ -156,7 +151,8 @@ public class Nav {
         movieAction(series.get(Integer.parseInt(input) - 1));
     }
 
-    private void viewWatchedMovie(){
+
+    private void viewWatched(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
@@ -168,15 +164,9 @@ public class Nav {
        }
     }
 
-    private void viewWatchedSeries(){
-        ArrayList<Series> series = new ArrayList<>();
-        for(int i = 0; i < u.getWatchedSeries().size(); i++){
-            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
-            series.add(serie);
-        }
 
-        for(int i = 0 ; i < series.size(); i++){
-            System.out.println(series.get(i));
-        }
-    }
+
+
+
+
 }
