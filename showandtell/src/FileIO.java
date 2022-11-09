@@ -70,6 +70,79 @@ public class FileIO {
         return null;
     }
 
+    public ArrayList searchCategories(int cat) {
+        String path ="";
+        if(cat == 1) {
+            path = "showandtell/Data/movies.txt";
+        }else {
+            path = "showandtell/Data/series.txt";
+        }
+        File file = new File(path);
+
+        ArrayList<String> indCategories = null;
+        try {
+
+            Scanner scan = new Scanner(file);
+            scan.nextLine();
+            indCategories = new ArrayList<>();
+            while (scan.hasNextLine()) {
+
+                String values = scan.nextLine();
+                String[] temp = values.split(";");
+                String[] categories = temp[3].split(",");
+                indCategories.addAll(Arrays.asList(categories));
+
+            }
+
+            Set<String> tempArray = new LinkedHashSet<String>(indCategories);
+            indCategories.clear();
+            indCategories.addAll(tempArray);
+        } catch (FileNotFoundException e) {
+
+
+        }
+        return indCategories;
+
+    }
+
+    public ArrayList <Content> movieCat(String field, int userInput){
+        String path ="";
+        if (userInput == 1) {
+            path = "showandtell/Data/movies.txt";
+        }else{
+            path = "showandtell/DATA/movies.txt";
+        }
+
+        File file = new File(path);
+
+        ArrayList<Content> catMovie = null;
+        try {
+
+            Scanner scan = new Scanner(file);
+            scan.nextLine();
+            catMovie = new ArrayList<>();
+            while (scan.hasNextLine()) {
+
+                String values = scan.nextLine();
+                String[] temp = values.split(";");
+                String[] categories = temp[3].split(",");
+                List <String> tempList = new ArrayList<>(Arrays.asList(categories));
+                if(tempList.contains(field)){
+                    catMovie.add(movie(temp));
+                }
+            }
+
+
+        } catch (FileNotFoundException e) {
+
+
+        }
+        return catMovie;
+
+
+
+    }
+
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);
         String title = c[1];
@@ -151,18 +224,37 @@ public class FileIO {
             FileWriter writer = new FileWriter(file);
             writer.write(rows.get(0) + "\n");
             for (int i = 1; i < rows.size(); i++) {
-                System.out.println(rows.get(i));
                 String[] values = rows.get(i).split(";");
                 if(Integer.parseInt(values[0]) == u.getID()) {
-                    String watchedStr = "";
+                    String watchedMovieStr = "";
                     for (int j = 0; j < u.getWatchedMovies().size(); j++) {
-                        watchedStr += u.getWatchedMovies().get(j) + ",";
+                        watchedMovieStr += u.getWatchedMovies().get(j) + ",";
                     }
-                    String savedStr = "";
+                    if (watchedMovieStr.equalsIgnoreCase("")) {
+                        watchedMovieStr = ",";
+                    }
+                    String savedMovieStr = "";
                     for (int j = 0; j < u.getSavedMovies().size(); j++) {
-                        savedStr += u.getSavedMovies().get(j) + ",";
+                        savedMovieStr += u.getSavedMovies().get(j) + ",";
                     }
-                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedStr + ";" + savedStr + ";,;,;");
+                    if (savedMovieStr.equalsIgnoreCase("")) {
+                        savedMovieStr = ",";
+                    }
+                    String watchedSeriesStr = "";
+                    for (int j = 0; j < u.getWatchedSeries().size(); j++) {
+                        watchedSeriesStr += u.getWatchedSeries().get(j) + ",";
+                    }
+                    if (watchedSeriesStr.equalsIgnoreCase("")) {
+                        watchedSeriesStr = ",";
+                    }
+                    String savedSeriesStr = "";
+                    for (int j = 0; j < u.getSavedSeries().size(); j++) {
+                        savedSeriesStr += u.getSavedSeries().get(j) + ",";
+                    }
+                    if (savedSeriesStr.equalsIgnoreCase("")) {
+                        savedSeriesStr = ",";
+                    }
+                    rows.set(i, "" + u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() +  ";" + watchedMovieStr + ";" + savedMovieStr + ";" + watchedSeriesStr + ";" + savedSeriesStr +";");
                 }
                 writer.write(rows.get(i) + "\n");
             }
@@ -203,30 +295,5 @@ public class FileIO {
         return index;
     }
 
-
-    
-   
-
-    public void searchByCategory(){
-           System.out.println(msg);
-            Scanner scan = new Scanner(System.in);
-            if (field == "categories"){
-            ArrayList<String> categories = new ArrayList<>();
-            String[] categoriesArr = c[3].split(",");
-            categories.addAll(Arrays.asList(categoriesArr));
-            
-            System.out.println(categories(i));
-         }else{
-            searchByCategory(field);
-
-
-         }
-
-        String input = scan.nextLine();
-
-        return input;
-
-    
-    }
 }
 
