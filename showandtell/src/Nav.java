@@ -75,7 +75,7 @@ public class Nav {
     }
 
     private void movieAction(Movie mov) {
-        ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie to list", "Remove movie from list"));
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie to list", "Remove movie from list", "Go back to the main menu"));
         String input = textUI.getUserInput("" + mov.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
             case 1:
@@ -83,19 +83,29 @@ public class Nav {
                 u.setWatchedMovies(mov.getID());
                 break;
             case 2:
-                u.setSavedMovies(mov.getID());
+                if(u.getSavedMovies().contains(mov.getID())){
+                    System.out.println("This movie already exisist please try again");
+                    movieAction(mov);
+                }else {
+                    u.setSavedMovies(mov.getID());
+                }
                 break;
             case 3:
                 u.removeSavedMovie(mov.getID());
                 break;
+            case 4:
+                mainMenu();
+                break;
             default:
                 System.out.println("Please try again");
+                movieAction(mov);
+
         }
         fileIO.updateUserData(u);
     }
 
     private void seriesAction(Series ser) {
-        ArrayList<String> options = new ArrayList(Arrays.asList("Play series", "Add series to list", "Remove series from list"));
+        ArrayList<String> options = new ArrayList(Arrays.asList("Play series", "Add series to list", "Remove series from list", "Go back to the main menu"));
         String input = textUI.getUserInput("" + ser.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
             case 1:
@@ -103,13 +113,22 @@ public class Nav {
                 u.setWatchedSeries(ser.getID());
                 break;
             case 2:
-                u.setSavedSeries(ser.getID());
+                if(u.getSavedSeries().contains(ser.getID())){
+                    System.out.println("This movie already exisist please try again");
+                    seriesAction(ser);
+                }else {
+                    u.setSavedSeries(ser.getID());
+                }
                 break;
             case 3:
                 u.removeSavedSeries(ser.getID());
                 break;
+            case 4:
+                mainMenu();
+                break;
             default:
                 System.out.println("Please try again");
+                seriesAction(ser);
         }
         fileIO.updateUserData(u);
     }
@@ -122,12 +141,24 @@ public class Nav {
 
         }
         ArrayList<String> options = new ArrayList();
+        options.add("Go back to main menu");
         for (int i = 0; i < movies.size(); i++) {
             options.add(movies.get(i).getTitle());
         }
+
         String input = textUI.getUserInput("Please select your movie", options);
-        movieAction(movies.get(Integer.parseInt(input) - 1));
+        if(Integer.parseInt(input) == 1 ){
+         mainMenu();
+        }
+        movieAction(movies.get(Integer.parseInt(input) - 2 ));
+
+
+
+
+
+
     }
+
 
     private void viewSavedSeries(){
         ArrayList<Series> series = new ArrayList<>();
@@ -137,11 +168,15 @@ public class Nav {
 
         }
         ArrayList<String> options = new ArrayList();
+        options.add("Go back to main menu");
         for (int i = 0; i < series.size(); i++) {
             options.add(series.get(i).getTitle());
         }
         String input = textUI.getUserInput("Please select your series", options);
-        seriesAction(series.get(Integer.parseInt(input) - 1));
+        if(Integer.parseInt(input) == 1 ){
+            mainMenu();
+        }
+        seriesAction(series.get(Integer.parseInt(input) - 2));
     }
 
     private void viewWatchedMovie(){
@@ -150,10 +185,16 @@ public class Nav {
            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
            movies.add(movie);
        }
-
+        ArrayList<String> options = new ArrayList();
+        options.add("Go back to main menu");
        for(int i = 0 ; i < movies.size(); i++){
-           System.out.println(movies.get(i));
+           options.add(movies.get(i).getTitle());
        }
+       String input = textUI.getUserInput("Please select your movie", options);
+        if(Integer.parseInt(input) == 1 ){
+            mainMenu();
+        }
+        movieAction(movies.get(Integer.parseInt(input) - 2 ));
     }
 
     private void viewWatchedSeries(){
@@ -162,9 +203,16 @@ public class Nav {
             Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
             series.add(serie);
         }
-
-        for(int i = 0 ; i < series.size(); i++){
-            System.out.println(series.get(i));
+        ArrayList<String> options = new ArrayList();
+        options.add("Go back to main menu");
+        for (int i = 0; i < series.size(); i++) {
+            options.add(series.get(i).getTitle());
         }
+        String input = textUI.getUserInput("Please select your series", options);
+        if(Integer.parseInt(input) == 1 ){
+            mainMenu();
+
+        }
+        seriesAction(series.get(Integer.parseInt(input) - 2));
     }
 }
