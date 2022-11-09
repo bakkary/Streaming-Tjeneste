@@ -4,7 +4,7 @@ import java.util.*;
 public class FileIO {
 
     public ArrayList<String> readSeriesData() {
-        File file = new File("Data/series.txt");
+        File file = new File("showandtell/Data/series.txt");
         ArrayList<java.lang.String> series = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
             input.nextLine();
@@ -19,7 +19,7 @@ public class FileIO {
     }
 
     public Series readSeriesData(String field, String query) {
-        File file = new File("Data/series.txt");
+        File file = new File("showandtell/Data/series.txt");
         try {
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
@@ -45,7 +45,7 @@ public class FileIO {
     }
 
     public Movie readMovieData(String field, String query) {
-        File file = new File("Data/movies.txt");
+        File file = new File("showandtell/Data/movies.txt");
         try {
             System.out.println(file);
             Scanner input = new Scanner(file);
@@ -185,7 +185,7 @@ public class FileIO {
 
 
     public String readUserData(String username, String password) {
-        File file = new File("Data/users.txt");
+        File file = new File("showandtell/Data/users.txt");
         ArrayList<String> users = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
             input.nextLine();
@@ -206,7 +206,7 @@ public class FileIO {
 
     public void writeUserData(User u){
         try{
-            FileWriter writer = new FileWriter("Data/users.txt", true);
+            FileWriter writer = new FileWriter("showandtell/Data/users.txt", true);
             writer.write(u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";,;,;,;,;\n");
             writer.close();
         } catch (IOException e){
@@ -215,7 +215,7 @@ public class FileIO {
     }
 
     public void updateUserData(User u) {
-        File file = new File("Data/users.txt");
+        File file = new File("showandtell/Data/users.txt");
         ArrayList<String> rows = new ArrayList<>();
         try {
             Scanner input = new Scanner(file);
@@ -269,7 +269,7 @@ public class FileIO {
     }
 
     public int getRow(String rowType) {
-        File file = new File("Data/systemInfo.txt");
+        File file = new File("showandtell/Data/systemInfo.txt");
         ArrayList<String> rows = new ArrayList<>();
         int index = 0;
         try{

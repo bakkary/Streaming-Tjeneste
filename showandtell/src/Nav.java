@@ -102,7 +102,7 @@ public class Nav {
         }
     }
 
-    private void movieAction(Movie mov) {
+    private void movieAction(Content mov) {
         ArrayList<String> options = new ArrayList(Arrays.asList("Play movie", "Add movie to list", "Remove movie from list", "Go back to the main menu"));
         String input = textUI.getUserInput("" + mov.getTitle() + " Please select one of the following", options);
         switch (Integer.parseInt(input)) {
@@ -212,7 +212,7 @@ public class Nav {
     }
 
 
-    private void viewWatched(){
+    private void viewWatchedMovie(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
