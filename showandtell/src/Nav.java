@@ -55,16 +55,22 @@ public class Nav {
     }
 
     private void searchByTitle(boolean isMovie) {
-
-
         if(isMovie) {
             String input = textUI.getUserInput("write the title of the movie you wish to watch");
             Movie n = fileIO.readMovieData("title", input);
-            movieAction(n);
+            if (n == null) {
+                searchByTitle(true);
+            } else {
+                movieAction(n);
+            }
         } else {
             String input = textUI.getUserInput("write the title of the series you wish to watch");
             Series s = fileIO.readSeriesData("title", input);
-            seriesAction(s);
+            if (s == null) {
+                searchByTitle(false);
+            } else {
+                seriesAction(s);
+            }
         }
     }
 
