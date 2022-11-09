@@ -5,11 +5,13 @@ public abstract class Content {
     private String title;
     private ArrayList<String> categories;
     private float rating;
-    Content(String title, ArrayList categories, float rating, int ID) {
+    private boolean age;
+    Content(String title, ArrayList categories, float rating, int ID, boolean age) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
         this.ID = ID;
+        this.age = age;
     }
 
     public int getID() {
@@ -32,5 +34,9 @@ public abstract class Content {
     @Override
     public String toString() {
         return getTitle();
+    }
+
+    public boolean getAge() {
+        return age;
     }
 }

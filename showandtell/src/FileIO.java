@@ -77,18 +77,20 @@ public class FileIO {
         String[] categoriesArr = c[3].split(",");
         categories.addAll(Arrays.asList(categoriesArr));
         float rating = Float.parseFloat(c[4].replace(",", "."));
+        boolean age = Boolean.parseBoolean(c[5]);
         Map map = new HashMap<>();
         map.put("title", title);
         map.put("categories", categories);
         map.put("rating", rating);
         map.put("ID", ID);
+        map.put("age", age);
         return map;
     }
 
     private Movie movie(String[] m) {
         Map map = content(m);
         int year = Integer.parseInt(m[2]);
-        return new Movie((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), year, (Integer) map.get("ID"));
+        return new Movie((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), year, (Integer) map.get("ID"), (boolean) map.get("age"));
 
     }
 
@@ -101,7 +103,7 @@ public class FileIO {
             endDate = Integer.parseInt(years[1]);
         }
         ArrayList<String> seasons = new ArrayList<>();
-        return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"));
+        return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"), (boolean) map.get("age"));
 
     }
 

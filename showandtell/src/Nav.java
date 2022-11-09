@@ -56,17 +56,23 @@ public class Nav {
 
     private void searchByTitle(boolean isMovie) {
         if(isMovie) {
-            String input = textUI.getUserInput("write the title of the movie you wish to watch");
+            String input = textUI.getUserInput("Write the title of the movie you wish to watch");
             Movie n = fileIO.readMovieData("title", input);
             if (n == null) {
+                searchByTitle(true);
+            }else if(u.getAge() < 18 && n.getAge()){
+                System.out.println("You are not old enough to see this movie, please try again");
                 searchByTitle(true);
             } else {
                 movieAction(n);
             }
         } else {
-            String input = textUI.getUserInput("write the title of the series you wish to watch");
+            String input = textUI.getUserInput("Write the title of the series you wish to watch");
             Series s = fileIO.readSeriesData("title", input);
             if (s == null) {
+                searchByTitle(false);
+            }else if(u.getAge() < 18 && s.getAge()){
+                System.out.println("You are not old enough to see this series, please try again");
                 searchByTitle(false);
             } else {
                 seriesAction(s);
