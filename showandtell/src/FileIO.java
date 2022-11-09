@@ -4,7 +4,7 @@ import java.util.*;
 public class FileIO {
 
     public ArrayList<String> readSeriesData() {
-        File file = new File("showandtell/Data/series.txt");
+        File file = new File("Data/series.txt");
         ArrayList<java.lang.String> series = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
             input.nextLine();
@@ -19,7 +19,7 @@ public class FileIO {
     }
 
     public Series readSeriesData(String field, String query) {
-        File file = new File("showandtell/Data/series.txt");
+        File file = new File("Data/series.txt");
         try {
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
@@ -45,8 +45,9 @@ public class FileIO {
     }
 
     public Movie readMovieData(String field, String query) {
-        File file = new File("showandtell/Data/movies.txt");
+        File file = new File("Data/movies.txt");
         try {
+            System.out.println(file);
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
             int index = 0;
@@ -77,20 +78,19 @@ public class FileIO {
         String[] categoriesArr = c[3].split(",");
         categories.addAll(Arrays.asList(categoriesArr));
         float rating = Float.parseFloat(c[4].replace(",", "."));
-        boolean age = Boolean.parseBoolean(c[5]);
         Map map = new HashMap<>();
         map.put("title", title);
         map.put("categories", categories);
         map.put("rating", rating);
         map.put("ID", ID);
-        map.put("age", age);
         return map;
     }
 
     private Movie movie(String[] m) {
         Map map = content(m);
         int year = Integer.parseInt(m[2]);
-        return new Movie((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), year, (Integer) map.get("ID"), (boolean) map.get("age"));
+        boolean age = Boolean.parseBoolean(m[5]);
+        return new Movie((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), year, (Integer) map.get("ID"), age);
 
     }
 
@@ -98,12 +98,13 @@ public class FileIO {
         Map map = content(s);
         String[] years = s[2].trim().split("-");
         int startDate = Integer.parseInt(years[0]);
+        boolean age = Boolean.parseBoolean(s[6]);
         int endDate = 0;
         if(years.length > 1) {
             endDate = Integer.parseInt(years[1]);
         }
         ArrayList<String> seasons = new ArrayList<>();
-        return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"), (boolean) map.get("age"));
+        return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"), age);
 
     }
 
@@ -111,7 +112,7 @@ public class FileIO {
 
 
     public String readUserData(String username, String password) {
-        File file = new File("showandtell/Data/users.txt");
+        File file = new File("Data/users.txt");
         ArrayList<String> users = new ArrayList<>();
         try{ Scanner input = new Scanner(file);
             input.nextLine();
@@ -132,7 +133,7 @@ public class FileIO {
 
     public void writeUserData(User u){
         try{
-            FileWriter writer = new FileWriter("showandtell/Data/users.txt", true);
+            FileWriter writer = new FileWriter("Data/users.txt", true);
             writer.write(u.getID() + ";" + u.getUsername() + ";" + u.getPassword() + ";" + u.getAge() + ";,;,;,;,;\n");
             writer.close();
         } catch (IOException e){
@@ -141,7 +142,7 @@ public class FileIO {
     }
 
     public void updateUserData(User u) {
-        File file = new File("showandtell/Data/users.txt");
+        File file = new File("Data/users.txt");
         ArrayList<String> rows = new ArrayList<>();
         try {
             Scanner input = new Scanner(file);
@@ -195,7 +196,7 @@ public class FileIO {
     }
 
     public int getRow(String rowType) {
-        File file = new File("showandtell/Data/systemInfo.txt");
+        File file = new File("Data/systemInfo.txt");
         ArrayList<String> rows = new ArrayList<>();
         int index = 0;
         try{

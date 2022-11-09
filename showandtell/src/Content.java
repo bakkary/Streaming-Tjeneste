@@ -6,6 +6,7 @@ public abstract class Content {
     private ArrayList<String> categories;
     private float rating;
     private boolean age;
+
     Content(String title, ArrayList categories, float rating, int ID, boolean age) {
         this.title = title;
         this.categories = categories;
