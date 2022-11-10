@@ -7,8 +7,6 @@ public class StartMenu {
     static TextUI textUI = new TextUI();
 
     public StartMenu() {
-
-
     }
 
 

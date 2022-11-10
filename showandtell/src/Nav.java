@@ -8,7 +8,6 @@ public class Nav {
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
 
-
     public Nav(User u) {
         this.u = u;
     }
@@ -17,7 +16,6 @@ public class Nav {
 
         String input = "";
         while (!input.equalsIgnoreCase("8")) {
-
 
             ArrayList<String> options = new ArrayList<String>(Arrays.asList("Search by movie title", "Search by series title", "Search by category", "View saved movie", "View saved series ", "View watched movies", "View watched series ", "Logout"));
 
@@ -84,22 +82,17 @@ public class Nav {
     }
 
     public void searchByCategory(){
-
-
         String userInput = textUI.getUserInput("please type 1 for movie and 2 for series");
 
-        ArrayList <String> cat = fileIO.searchCategories(Integer.parseInt(userInput));
+        ArrayList<String> cat = fileIO.searchCategories(Integer.parseInt(userInput));
 
         String input = textUI.getUserInput("Please select a Categorie", cat);
 
-        ArrayList <Content> result = fileIO.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
+        ArrayList<Content> result = fileIO.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
-        input =textUI.getUserInput("please select one of the movies", result);
+        input = textUI.getUserInput("please select one of the movies", result);
 
         movieAction(result.get(Integer.parseInt(input)-1));
-        {
-
-        }
     }
 
     private void movieAction(Content mov) {
@@ -115,10 +108,10 @@ public class Nav {
                 }
                 break;
             case 2:
-                if(u.getSavedMovies().contains(mov.getID())){
+                if(u.getSavedMovies().contains(mov.getID())) {
                     System.out.println("This movie already exisist please try again");
                     movieAction(mov);
-                }else {
+                } else {
                     u.setSavedMovies(mov.getID());
                 }
                 break;
@@ -131,7 +124,6 @@ public class Nav {
             default:
                 System.out.println("Please try again");
                 movieAction(mov);
-
         }
         fileIO.updateUserData(u);
     }
@@ -184,11 +176,6 @@ public class Nav {
          mainMenu();
         }
         movieAction(movies.get(Integer.parseInt(input) - 2 ));
-
-
-
-
-
 
     }
 
