@@ -34,22 +34,25 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         String result = fileIO.readUserData(username, password);
+        System.out.println(result);
         if (result.equalsIgnoreCase("")) {
             System.out.println("Wrong username or password");
             login();
-        }
-        String[] arr = result.split(";");
-        String[] watchedmovies = arr[4].split(",");
-        ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watchedmovies));
-        String[] savedmovies = arr[5].split(",");
-        ArrayList<String> savedMovies = new ArrayList<>(Arrays.asList(savedmovies));
-        String[] watchedseries = arr[6].split(",");
-        ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
-        String[] savedseries = arr[7].split(",");
-        ArrayList<String> savedSeries = new ArrayList<>(Arrays.asList(savedseries));
+        } else {
+            String[] arr = result.split(";");
+            String[] watchedmovies = arr[4].split(",");
+            ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watchedmovies));
+            String[] savedmovies = arr[5].split(",");
+            ArrayList<String> savedMovies = new ArrayList<>(Arrays.asList(savedmovies));
+            String[] watchedseries = arr[6].split(",");
+            ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
+            String[] savedseries = arr[7].split(",");
+            ArrayList<String> savedSeries = new ArrayList<>(Arrays.asList(savedseries));
 
-        User user = new User(arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
-        return user;
+            User user = new User(arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
+            return user;
+        }
+        return null;
     }
 
     public void logout() {
