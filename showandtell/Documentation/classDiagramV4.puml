@@ -1,0 +1,128 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/class-diagram
+
+class Main{
+- static Nav nav
+- static FileIO fileIO
+- static TextUI textUI
++ static void main()
++ static User startMenu()
++ static User login()
++ static user signup()
+}
+
+
+
+
+class Nav {
+- File fileIO
+- TextUI textUI
++ Nav(User u)
++ void mainMenu()
++ void searchByTitle()
++ void movieAction()
++ void viewSaved()
++ viewWatched()
+}
+class Connector {
++ checkConnection();
++ runOffline();
++ runOnline();
+}
+
+
+class SQL{
+- connect();
+}
+
+
+class FileIO {
++ Series readSeriesData(String field, String query)
++ Movie readMovieData(String field, String query)
+- Map content(String[] c)
+- Movie movie(String[] m)
+- Series series(String[] s)
++ String readUserData(String username, String password)
++ void writeUserData(User u)
++ void updateUserData(User u)
+- int getRow(String rowType)
+}
+
+class TextUI {
+- Scanner scan
++ String getUserInput(String msg)
++ String getUserInput(String msg, ArrayList options)
+}
+
+class User {
+- int ID
+- int age
+- String username
+- String password
+- ArrayList<Integer> watchedMovies
+- ArrayList<Integer> savedMovies
++ User(String username, String password, int age, int ID, ArrayList watchedMovies, ArrayList savedMovies)
++ void setWatchedMovie(int watched)
++ void setSavedMovie(int Saved)
++ ArrayList<Integer> getWatchedMovies()
++ ArrayList<Integer> getSavedMovies()
++ void removeSavedMovie(int ID)
++ int getAge()
++ String getUsername()
++ String getPassword()
++ int getID()
+}
+
+class Movie {
+- int year
++ Movie(String title, ArrayList categories, float rating, int year, int ID)
++ String getTitle()
++ int getYear()
+}
+
+class Series {
+- int startDate
+- int endDate
+- ArrayList<String> season
++ Series(String title, ArrayList categories, float rating, int startDate, int endDate, ArrayList season, int ID)
++ String getYear()
+}
+
+abstract Content {
+- int ID
+- String title
+- ArrayList<String> categories
+- float rating
++ Content(String title, ArrayList categories, float rating, int ID)
++ int getID()
++ String getTitle()
++ ArrayList getCategories()
++ float getRating()
++ String toString()
+}
+
+Main <-- Connector
+Connector <-- Nav
+Connector <-- SQL
+Main <-- TextUI
+Main <-- FileIO
+Nav <-- User
+Nav <-- Content
+Nav <-- TextUI
+Nav <-- FileIO
+Content <-- Movie
+Content <-- Series
+
+object movies.txt {
+title;categories[];rating;year
+}
+
+object series.txt {
+title;categories[];rating;startDate;endDate;season[]
+}
+object users.txt {
+username;password;age;watchedMovies[];savedMovies[]
+}
+
+@enduml
