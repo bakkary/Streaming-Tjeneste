@@ -4,16 +4,23 @@
 
 class Main{
 - static Nav nav
-- static FileIO fileIO
 - static TextUI textUI
 + static void main()
 + static User startMenu()
-+ static User login()
-+ static user signup()
+
 }
 
 
 
+class StartMenu{
+- static FileIO fileIO
+- static textUI textUI
++ void runMenu()
++ user login()
++ void logOut()
+- user signUp()
+- int age()
+}
 
 class Nav {
 - File fileIO
@@ -25,24 +32,30 @@ class Nav {
 + void viewSaved()
 + viewWatched()
 }
-class Connector {
+class Connector{
 + checkConnection();
-+ runOffline();
-+ runOnline();
+- Map content(String[] c)
+- Movie movie(String[] m)
+- Series series(String[] s)
++readSeriesData(String field, String query)
++readMovieData (String field, String query)
++readUserData(String username, String password)
 }
 
 
 class SQL{
 - connect();
++ Series readSeriesData(String field, String query)
++ Movie readMovieData(String field, String query)
++ String readUserData(String username, String password)
++ void writeUserData(User u)
++ void updateUserData(User u)
 }
 
 
 class FileIO {
 + Series readSeriesData(String field, String query)
 + Movie readMovieData(String field, String query)
-- Map content(String[] c)
-- Movie movie(String[] m)
-- Series series(String[] s)
 + String readUserData(String username, String password)
 + void writeUserData(User u)
 + void updateUserData(User u)
@@ -102,15 +115,18 @@ abstract Content {
 + String toString()
 }
 
-Main <-- Connector
-Connector <-- Nav
+
+Main <-- StartMenu
+StartMenu <-- Connector
+
+Main <-- Nav
+Nav <-- Connector
 Connector <-- SQL
+Connector <-- FileIO
 Main <-- TextUI
-Main <-- FileIO
 Nav <-- User
 Nav <-- Content
 Nav <-- TextUI
-Nav <-- FileIO
 Content <-- Movie
 Content <-- Series
 
