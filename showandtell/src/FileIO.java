@@ -18,7 +18,7 @@ public class FileIO {
         return series;
     }
 
-    public Series readSeriesData(String field, String query) {
+    public String[] readSeriesData(String field, String query) {
         File file = new File("showandtell/Data/series.txt");
         try {
             Scanner input = new Scanner(file);
@@ -34,7 +34,7 @@ public class FileIO {
                 String movie = input.nextLine();
                 String[] values = movie.split(";");
                 if (values[index].equalsIgnoreCase(query)) {
-                    return series(values);
+                    return values;
                 }
             }
 
@@ -44,7 +44,7 @@ public class FileIO {
         return null;
     }
 
-    public Movie readMovieData(String field, String query) {
+    public String[] readMovieData(String field, String query) {
         File file = new File("showandtell/Data/movies.txt");
         try {
             System.out.println(file);
@@ -61,7 +61,7 @@ public class FileIO {
                 String movie = input.nextLine();
                 String[] values = movie.split(";");
                 if (values[index].equalsIgnoreCase(query)) {
-                    return movie(values);
+                    return values;
                 }
             }
 
@@ -69,6 +69,26 @@ public class FileIO {
         }catch (FileNotFoundException e) {
         }
         return null;
+    }
+
+    public String[] readUserData(String username, String password) {
+        File file = new File("showandtell/Data/users.txt");
+        ArrayList<String> users = new ArrayList<>();
+        try{ Scanner input = new Scanner(file);
+            input.nextLine();
+            while (input.hasNextLine()){
+                users.add(input.nextLine());
+            }
+            for(String u : users){
+                String[] values = u.split(";");
+                if(Objects.equals(values[1], username) && Objects.equals(values[2], password)){
+                    return values;
+                }
+            }
+        }catch (FileNotFoundException e) {
+            users = null;
+        }
+        return new String[]{""};
     }
 
     public ArrayList searchCategories(int cat) {
@@ -106,17 +126,17 @@ public class FileIO {
 
     }
 
-    public ArrayList <Content> movieCat(String field, int userInput){
+    public ArrayList <String> movieCat(String field, int userInput){
         String path ="";
         if (userInput == 1) {
             path = "showandtell/Data/movies.txt";
         }else{
-            path = "showandtell/DATA/movies.txt";
+            path = "showandtell/Data/series.txt";
         }
 
         File file = new File(path);
 
-        ArrayList<Content> catMovie = null;
+        ArrayList<String> catMovie = null;
         try {
 
             Scanner scan = new Scanner(file);
@@ -129,79 +149,15 @@ public class FileIO {
                 String[] categories = temp[3].split(",");
                 List <String> tempList = new ArrayList<>(Arrays.asList(categories));
                 if(tempList.contains(field)){
-                    catMovie.add(movie(temp));
+                    catMovie.add(values);
                 }
             }
 
-
         } catch (FileNotFoundException e) {
-
 
         }
         return catMovie;
 
-
-
-    }
-
-    private Map content(String[] c) {
-        int ID = Integer.parseInt(c[0]);
-        String title = c[1];
-        ArrayList<String> categories = new ArrayList<>();
-        String[] categoriesArr = c[3].split(",");
-        categories.addAll(Arrays.asList(categoriesArr));
-        float rating = Float.parseFloat(c[4].replace(",", "."));
-        Map map = new HashMap<>();
-        map.put("title", title);
-        map.put("categories", categories);
-        map.put("rating", rating);
-        map.put("ID", ID);
-        return map;
-    }
-
-    private Movie movie(String[] m) {
-        Map map = content(m);
-        int year = Integer.parseInt(m[2]);
-        boolean age = Boolean.parseBoolean(m[5]);
-        return new Movie((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), year, (Integer) map.get("ID"), age);
-
-    }
-
-    private Series series(String[] s) {
-        Map map = content(s);
-        String[] years = s[2].trim().split("-");
-        int startDate = Integer.parseInt(years[0]);
-        boolean age = Boolean.parseBoolean(s[6]);
-        int endDate = 0;
-        if(years.length > 1) {
-            endDate = Integer.parseInt(years[1]);
-        }
-        ArrayList<String> seasons = new ArrayList<>();
-        return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"), age);
-
-    }
-
-
-
-
-    public String readUserData(String username, String password) {
-        File file = new File("showandtell/Data/users.txt");
-        ArrayList<String> users = new ArrayList<>();
-        try{ Scanner input = new Scanner(file);
-            input.nextLine();
-            while (input.hasNextLine()){
-                users.add(input.nextLine());
-            }
-            for(String u : users){
-                String[] values = u.split(";");
-                if(Objects.equals(values[1], username) && Objects.equals(values[2], password)){
-                    return u;
-                }
-            }
-        }catch (FileNotFoundException e) {
-            users = null;
-        }
-        return "";
     }
 
     public void writeUserData(User u){
