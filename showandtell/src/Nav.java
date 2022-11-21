@@ -53,9 +53,6 @@ public class Nav {
         }
     }
 
-
-
-
     private void searchByTitle(boolean isMovie) {
         if (isMovie) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
@@ -85,11 +82,11 @@ public class Nav {
     public void searchByCategory(){
         String userInput = textUI.getUserInput("please type 1 for movie and 2 for series");
 
-        ArrayList<String> cat = fileIO.searchCategories(Integer.parseInt(userInput));
+        ArrayList<String> cat = connector.searchCategories(Integer.parseInt(userInput));
 
         String input = textUI.getUserInput("Please select a Categorie", cat);
 
-        ArrayList<Content> result = fileIO.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
+        ArrayList<Content> result = connector.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
         input = textUI.getUserInput("please select one of the movies", result);
 
@@ -126,7 +123,7 @@ public class Nav {
                 System.out.println("Please try again");
                 movieAction(mov);
         }
-        fileIO.updateUserData(u);
+        connector.updateUserData(u);
     }
 
     private void seriesAction(Series ser) {
@@ -155,7 +152,7 @@ public class Nav {
                 System.out.println("Please try again");
                 seriesAction(ser);
         }
-        fileIO.updateUserData(u);
+        connector.updateUserData(u);
     }
 
     private void viewSavedMovie() {

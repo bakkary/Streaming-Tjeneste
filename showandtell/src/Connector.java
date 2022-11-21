@@ -3,24 +3,21 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Connector {
-    Scanner scan = new Scanner(System.in);
-
     FileIO fileIO = new FileIO();
+    TextUI textUI = new TextUI();
 
-    public boolean connection(){
-        System.out.println(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
-        int test = Integer.parseInt(scan.nextLine());
-        boolean answear;
-        if (test == 1){
+    public boolean connection() {
+        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+        boolean answear = false;
+        if(Integer.parseInt(input) == 1 ){
             System.out.println("going online");
-            SQL sql = new SQL();
-            answear=true;
-        }else{
+            //SQL sql = new SQL();
+            answear = true;
+        } else {
             FileIO fileIO = new FileIO();
             System.out.println("going offline");
             answear = false;
         }
-
         return answear;
     }
 
@@ -59,7 +56,7 @@ public class Connector {
         return new Series((String) map.get("title"), (ArrayList) map.get("categories"), (Float) map.get("rating"), startDate, endDate, seasons, (Integer) map.get("ID"), age);
     }
 
-    private User users(String[] result){
+    private User users(String[] result) {
         String[] watchedmovies = result[4].split(",");
         ArrayList<String> watchedMovies = new ArrayList<>(Arrays.asList(watchedmovies));
         String[] savedmovies = result[5].split(",");
@@ -83,12 +80,38 @@ public class Connector {
         return series(seriesData);
     }
 
-    User readUserData(String username, String password){
+    User readUserData(String username, String password) {
         String[] userData = fileIO.readUserData(username, password);
-        if(userData.length == 0){
+        if (userData.length == 0) {
             return null;
-        }else{
+        } else {
             return users(userData);
         }
+    }
+
+    ArrayList<Content> movieCat(String field, int userInput) {
+        ArrayList<String> cat = fileIO.movieCat(field, userInput);
+        ArrayList<Content> con = new ArrayList<>();
+        for (int i = 0; i < cat.size(); i++) {
+            String[] temp = cat.get(i).split(";");
+            if (userInput == 1) {
+                con.add(movie(temp));
+            }else{
+                con.add(series(temp));
+            }
+        }
+        return con;
+    }
+
+    ArrayList<String> searchCategories(int cat){
+        return fileIO.searchCategories(cat);
+    }
+
+    void writeUserData(User u){
+        fileIO.writeUserData(u);
+    }
+
+    void updateUserData(User u){
+        fileIO.updateUserData(u);
     }
 }

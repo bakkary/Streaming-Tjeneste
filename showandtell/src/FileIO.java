@@ -38,7 +38,6 @@ public class FileIO {
                 }
             }
 
-
         }catch (FileNotFoundException e) {
         }
         return null;
@@ -64,7 +63,6 @@ public class FileIO {
                     return values;
                 }
             }
-
 
         }catch (FileNotFoundException e) {
         }
@@ -112,7 +110,6 @@ public class FileIO {
                 String[] temp = values.split(";");
                 String[] categories = temp[3].split(",");
                 indCategories.addAll(Arrays.asList(categories));
-
             }
 
             Set<String> tempArray = new LinkedHashSet<String>(indCategories);
@@ -120,10 +117,8 @@ public class FileIO {
             indCategories.addAll(tempArray);
         } catch (FileNotFoundException e) {
 
-
         }
         return indCategories;
-
     }
 
     public ArrayList <String> movieCat(String field, int userInput){
@@ -138,7 +133,6 @@ public class FileIO {
 
         ArrayList<String> catMovie = null;
         try {
-
             Scanner scan = new Scanner(file);
             scan.nextLine();
             catMovie = new ArrayList<>();
@@ -178,7 +172,6 @@ public class FileIO {
             while (input.hasNextLine()){
                 rows.add(input.nextLine());
             }
-
 
             FileWriter writer = new FileWriter(file);
             writer.write(rows.get(0) + "\n");
@@ -245,7 +238,6 @@ public class FileIO {
                 }
                 writer.write(rows.get(i) + "\n");
             }
-
 
             writer.close();
         }catch (IOException e) {
