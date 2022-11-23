@@ -13,7 +13,7 @@ public class Connector {
        boolean answear = false;
         if(Integer.parseInt(input) == 1 ){
             System.out.println("going online");
-            // connection = new SQL();
+             connection = new SQLIO();
             answear = true;
         } else {
 

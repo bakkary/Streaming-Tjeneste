@@ -4,7 +4,6 @@ import java.util.Arrays;
 public class StartMenu {
     static FileIO fileIO = new FileIO();
     static TextUI textUI = new TextUI();
-
     static Connector connector = new Connector();
 
     public StartMenu() {
