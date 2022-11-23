@@ -7,8 +7,11 @@ public class Nav {
     private User u;
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
+    private Connector connector = new Connector();
+
 
     public Nav(User u) {
+        connector.connection();
         this.u = u;
     }
 
@@ -52,13 +55,10 @@ public class Nav {
         }
     }
 
-
-
-
     private void searchByTitle(boolean isMovie) {
         if (isMovie) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
-            Movie n = fileIO.readMovieData("title", input);
+            Movie n = connector.readMovieData("title", input);
             if (n == null) {
                 searchByTitle(true);
             } else if (u.getAge() < 18 && n.getAge()) {
@@ -69,7 +69,7 @@ public class Nav {
             }
         } else {
             String input = textUI.getUserInput("Write the title of the series you wish to watch");
-            Series s = fileIO.readSeriesData("title", input);
+            Series s = connector.readSeriesData("title", input);
             if (s == null) {
                 searchByTitle(false);
             } else if (u.getAge() < 18 && s.getAge()) {
@@ -84,11 +84,11 @@ public class Nav {
     public void searchByCategory(){
         String userInput = textUI.getUserInput("please type 1 for movie and 2 for series");
 
-        ArrayList<String> cat = fileIO.searchCategories(Integer.parseInt(userInput));
+        ArrayList<String> cat = connector.searchCategories(Integer.parseInt(userInput));
 
         String input = textUI.getUserInput("Please select a Categorie", cat);
 
-        ArrayList<Content> result = fileIO.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
+        ArrayList<Content> result = connector.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
         input = textUI.getUserInput("please select one of the movies", result);
 
@@ -125,7 +125,7 @@ public class Nav {
                 System.out.println("Please try again");
                 movieAction(mov);
         }
-        fileIO.updateUserData(u);
+        connector.updateUserData(u);
     }
 
     private void seriesAction(Series ser) {
@@ -154,13 +154,13 @@ public class Nav {
                 System.out.println("Please try again");
                 seriesAction(ser);
         }
-        fileIO.updateUserData(u);
+        connector.updateUserData(u);
     }
 
     private void viewSavedMovie() {
         ArrayList<Movie> movies = new ArrayList<>();
         for (int i = 0; i < u.getSavedMovies().size(); i++) {
-            Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getSavedMovies().get(i)));
+            Movie movie = connector.readMovieData("ID", String.valueOf(u.getSavedMovies().get(i)));
             movies.add(movie);
 
         }
@@ -182,7 +182,7 @@ public class Nav {
     private void viewSavedSeries(){
         ArrayList<Series> series = new ArrayList<>();
         for (int i = 0; i < u.getSavedSeries().size(); i++) {
-            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getSavedSeries().get(i)));
+            Series serie = connector.readSeriesData("ID", String.valueOf(u.getSavedSeries().get(i)));
             series.add(serie);
 
         }
@@ -202,7 +202,7 @@ public class Nav {
     private void viewWatchedMovie(){
        ArrayList<Movie> movies = new ArrayList<>();
        for(int i = 0; i < u.getWatchedMovies().size(); i++){
-           Movie movie = fileIO.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
+           Movie movie = connector.readMovieData("ID", String.valueOf(u.getWatchedMovies().get(i)));
            movies.add(movie);
        }
         ArrayList<String> options = new ArrayList();
@@ -220,7 +220,7 @@ public class Nav {
     private void viewWatchedSeries(){
         ArrayList<Series> series = new ArrayList<>();
         for(int i = 0; i < u.getWatchedSeries().size(); i++){
-            Series serie = fileIO.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
+            Series serie = connector.readSeriesData("ID", String.valueOf(u.getWatchedSeries().get(i)));
             series.add(serie);
         }
         ArrayList<String> options = new ArrayList();
