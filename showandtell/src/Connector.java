@@ -3,21 +3,26 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Connector {
-    FileIO fileIO = new FileIO();
+
+    Expresso connection;
     TextUI textUI = new TextUI();
 
     public boolean connection() {
         String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
-        boolean answear = false;
+
+       boolean answear = false;
         if(Integer.parseInt(input) == 1 ){
             System.out.println("going online");
-            //SQL sql = new SQL();
+            // connection = new SQL();
             answear = true;
         } else {
-            FileIO fileIO = new FileIO();
+
+            connection = new FileIO();
             System.out.println("going offline");
             answear = false;
+
         }
+        System.out.println(answear);
         return answear;
     }
 
@@ -71,17 +76,17 @@ public class Connector {
     }
 
     Movie readMovieData(String field, String query) {
-        String[] movieData = fileIO.readMovieData(field, query);
+        String[] movieData = connection.readMovieData(field, query);
         return movie(movieData);
     }
 
     Series readSeriesData(String field, String query) {
-        String[] seriesData = fileIO.readSeriesData(field, query);
+        String[] seriesData = connection.readSeriesData(field, query);
         return series(seriesData);
     }
 
     User readUserData(String username, String password) {
-        String[] userData = fileIO.readUserData(username, password);
+        String[] userData = connection.readUserData(username, password);
         if (userData.length == 0) {
             return null;
         } else {
@@ -90,7 +95,7 @@ public class Connector {
     }
 
     ArrayList<Content> movieCat(String field, int userInput) {
-        ArrayList<String> cat = fileIO.movieCat(field, userInput);
+        ArrayList<String> cat = connection.movieCat(field, userInput);
         ArrayList<Content> con = new ArrayList<>();
         for (int i = 0; i < cat.size(); i++) {
             String[] temp = cat.get(i).split(";");
@@ -104,14 +109,14 @@ public class Connector {
     }
 
     ArrayList<String> searchCategories(int cat){
-        return fileIO.searchCategories(cat);
+        return connection.searchCategories(cat);
     }
 
     void writeUserData(User u){
-        fileIO.writeUserData(u);
+        connection.writeUserData(u);
     }
 
     void updateUserData(User u){
-        fileIO.updateUserData(u);
+        connection.updateUserData(u);
     }
 }

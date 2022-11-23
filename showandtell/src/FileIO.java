@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class FileIO {
+public class FileIO implements Expresso{
 
     public ArrayList<String> readSeriesData() {
         File file = new File("showandtell/Data/series.txt");
@@ -17,7 +17,7 @@ public class FileIO {
         }
         return series;
     }
-
+@Override
     public String[] readSeriesData(String field, String query) {
         File file = new File("showandtell/Data/series.txt");
         try {
@@ -42,7 +42,7 @@ public class FileIO {
         }
         return null;
     }
-
+@Override
     public String[] readMovieData(String field, String query) {
         File file = new File("showandtell/Data/movies.txt");
         try {
@@ -68,7 +68,7 @@ public class FileIO {
         }
         return null;
     }
-
+@Override
     public String[] readUserData(String username, String password) {
         File file = new File("showandtell/Data/users.txt");
         ArrayList<String> users = new ArrayList<>();
@@ -89,6 +89,7 @@ public class FileIO {
         return new String[]{""};
     }
 
+    @Override
     public ArrayList searchCategories(int cat) {
         String path ="";
         if(cat == 1) {
@@ -120,7 +121,7 @@ public class FileIO {
         }
         return indCategories;
     }
-
+@Override
     public ArrayList <String> movieCat(String field, int userInput){
         String path ="";
         if (userInput == 1) {
@@ -154,6 +155,7 @@ public class FileIO {
 
     }
 
+    @Override
     public void writeUserData(User u){
         try{
             FileWriter writer = new FileWriter("showandtell/Data/users.txt", true);
@@ -163,7 +165,7 @@ public class FileIO {
             System.out.println(e);
         }
     }
-
+@Override
     public void updateUserData(User u) {
         File file = new File("showandtell/Data/users.txt");
         ArrayList<String> rows = new ArrayList<>();
@@ -245,6 +247,7 @@ public class FileIO {
         }
         return index;
     }
+
 
 }
 

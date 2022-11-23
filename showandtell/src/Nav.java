@@ -9,7 +9,9 @@ public class Nav {
     private TextUI textUI = new TextUI();
     private Connector connector = new Connector();
 
+
     public Nav(User u) {
+        connector.connection();
         this.u = u;
     }
 
