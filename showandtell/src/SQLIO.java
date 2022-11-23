@@ -58,6 +58,7 @@ import java.util.ArrayList;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            series.add(3, categories(Integer.parseInt(series.get(0)), "series"));
             String[] seriesArr = new String[series.size()];
             seriesArr = series.toArray(seriesArr);
 
@@ -100,7 +101,7 @@ import java.util.ArrayList;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
+            movie.add(3, categories(Integer.parseInt(movie.get(0)), "movies"));
             String[] movieArr = new String[movie.size()];
             movieArr = movie.toArray(movieArr);
 
@@ -109,6 +110,27 @@ import java.util.ArrayList;
             }
 
             return movieArr;
+        }
+
+        public String categories(int i, String type) {
+            String query = ("select categories from "+ type +" join "+type+"_categories on "+type+"_categories."+type+"_id = "+type+".ID join categories on "+type+"_categories.category_id = categories.ID where "+type+".id = "+ i + "");
+            String categories = "";
+            try {
+                Statement statement = this.connection.createStatement();
+                statement.execute(query);
+
+                ResultSet resultSet = statement.getResultSet();
+
+                while(resultSet.next()) {
+                    String category = resultSet.getString("categories");
+                    System.out.println(category);
+                    categories += category+",";
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            System.out.println(categories);
+            return categories;
         }
 
         @Override
@@ -136,10 +158,10 @@ import java.util.ArrayList;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            String savedMovies = getList(Integer.parseInt(user.get(0)), "saved_movies", "user_id", "movie_id");
-            String watchedMovies = getList(Integer.parseInt(user.get(0)), "watched_movies", "user_id", "movie_id");
-            String savedSeries = getList(Integer.parseInt(user.get(0)), "saved_series", "user_id", "series_id");
-            String watchedSeries = getList(Integer.parseInt(user.get(0)), "watched_movies", "user_id", "series_id");
+            String savedMovies = getList(Integer.parseInt(user.get(0)), "movies_saved", "user_id", "movie_id");
+            String watchedMovies = getList(Integer.parseInt(user.get(0)), "movies_watched", "user_id", "movie_id");
+            String savedSeries = getList(Integer.parseInt(user.get(0)), "series_saved", "user_id", "series_id");
+            String watchedSeries = getList(Integer.parseInt(user.get(0)), "series_watched", "user_id", "series_id");
             user.add(4, watchedMovies);
             user.add(5,savedMovies);
             user.add(6, watchedSeries);
@@ -186,14 +208,60 @@ import java.util.ArrayList;
 
         @Override
         public void writeUserData(User u) {
-            //String query = ("INSERT INTO users (ID,username,password) VALUES("+ID+",'"+username+"','"+password+"'");
-            //Resultset result = new
+            String query = ("insert into users values ("+u.getID()+",'"+ u.getUsername()+"','"+u.getPassword()+"',"+u.getAge()+")");
+            try {
+                Statement statement = this.connection.createStatement();
+                statement.executeUpdate(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
 
         }
 
         @Override
         public void updateUserData(User u) {
+            // update movies_saved
+            for (Integer i: u.getSavedMovies()) {
+                String query = ("insert into movies_saved values("+ u.getID() +","+ i +") where not exists (select * from movies_saved where user_id = "+ u.getID() +"," + i+")");
+                try {
+                    Statement statement = this.connection.createStatement();
+                    statement.executeUpdate(query);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            // update movies_watched
+            for (Integer i: u.getWatchedMovies()) {
+                String query = ("insert ignore into movies_watched values("+ u.getID() +","+ i +")");
+                try {
+                    Statement statement = this.connection.createStatement();
+                    statement.executeUpdate(query);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            // update series_saved
+            for (Integer i: u.getSavedMovies()) {
+                String query = ("insert into series_saved values("+ u.getID() +","+ i +") where not exists (select * from series_saved where user_id = "+ u.getID() +"," + i+")");
+                try {
+                    Statement statement = this.connection.createStatement();
+                    statement.executeUpdate(query);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            // update series_watched
+            for (Integer i: u.getWatchedMovies()) {
+                String query = ("insert ignore into series_watched values("+ u.getID() +","+ i +")");
+                try {
+                    Statement statement = this.connection.createStatement();
+                    statement.executeUpdate(query);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
 
         }
 

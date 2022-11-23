@@ -1,4 +1,4 @@
 rowType;index;
-userRow;4;
+userRow;6;
 moviesRow;100
 seriesRow;100
