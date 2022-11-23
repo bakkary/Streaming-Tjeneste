@@ -22,7 +22,7 @@ public class Connector {
             answear = false;
 
         }
-        System.out.println(answear);
+       
         return answear;
     }
 
