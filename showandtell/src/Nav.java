@@ -11,6 +11,7 @@ public class Nav {
 
 
     public Nav(User u) {
+        mainMenu();
         connector.connection();
         this.u = u;
     }

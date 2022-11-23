@@ -16,12 +16,17 @@ public class StartMenu {
         User u = null;
 
         String result = textUI.getUserInput("Welcome! \n Press 1 to sign up \n Press 2 to log in");
-        if (Integer.parseInt(result) == 1) {
-            u = signUp();
-        } else if (Integer.parseInt(result) == 2) {
-            u = login();
-        } else {
-            System.out.println("please try again");
+        try {
+            if (Integer.parseInt(result) == 1) {
+                u = signUp();
+            } else if (Integer.parseInt(result) == 2) {
+                u = login();
+            } else {
+                System.out.println("please try again");
+                RunMenu();
+            }
+        }catch (NumberFormatException e){
+            System.out.println("The entered value is not recognized as a expected input");
             RunMenu();
         }
 
@@ -34,7 +39,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         User result = connector.readUserData(username, password);
-        System.out.println(result);
+        System.out.println("Welcome" +  result.toString());
         if (result == null) {
             System.out.println("Wrong username or password");
             login();
