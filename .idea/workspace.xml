@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/showandtell/src/SQLIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/SQLIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/SQLIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

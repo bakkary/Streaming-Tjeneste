@@ -47,11 +47,10 @@ import java.util.ArrayList;
 
                 while(resultSet.next())
                 {
-                    String cityName = resultSet.getString("Name");
-                    int population = resultSet.getInt("Population");
+                    String name = resultSet.getString("username");
+                    String password = resultSet.getString("password");
 
-                    City city = new City(cityName, population);
-                    this.cities.add(city);
+
                 }
             }
             catch (SQLException e)
@@ -60,8 +59,7 @@ import java.util.ArrayList;
             }
 
 
-            // verify via sout
-            printCities();
+          readUserData("chris");
         }
 
 
@@ -107,7 +105,7 @@ import java.util.ArrayList;
 
 
 
-        
+
         private void establishConnection()
         {
             // connection
