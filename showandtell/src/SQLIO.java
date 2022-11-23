@@ -1,7 +1,3 @@
-
-
-package com.company;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -27,8 +23,6 @@ import java.util.ArrayList;
         private String username = "root";
         private String password = "7gaZXHlXt8y6^#0u";
         private ArrayList<String> users = new ArrayList<>();
-
-        private arraylist<City> cities = new ArrayList<>();
 
         public void run()
         {
@@ -63,7 +57,7 @@ import java.util.ArrayList;
         }
 
 
-        private String readUserData(String username) {
+        public String readUserData(String username) {
 
 
             String query = ("SELECT * FROM users WHERE username = '" +username+"'LIMIT 1");
@@ -106,7 +100,7 @@ import java.util.ArrayList;
 
 
 
-        private void establishConnection()
+        public void establishConnection()
         {
             // connection
             try
@@ -119,4 +113,4 @@ import java.util.ArrayList;
             }
         }
     }
-}
+
