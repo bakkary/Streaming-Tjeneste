@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/showandtell/src/Expresso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21-11-2022_11_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21-11-2022_11_11__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/FileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Connector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/SQLIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/SQLIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +55,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/andre/Documents/GitHub/Streaming-Tjeneste/Streaming-Tjeneste/showandtell/Documentation",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "C:/Users/chz/OneDrive/Skrivebord/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49-bin.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
