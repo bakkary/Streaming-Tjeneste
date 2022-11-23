@@ -7,12 +7,12 @@ public class Nav {
     private User u;
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
-    private Connector connector = new Connector();
+    private Connector connector;
 
 
-    public Nav(User u) {
-        connector.connection();
+    public Nav(User u, Connector connector) {
         this.u = u;
+        this.connector = connector;
     }
 
     public void mainMenu() {

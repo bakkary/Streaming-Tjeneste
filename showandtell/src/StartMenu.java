@@ -5,16 +5,17 @@ public class StartMenu {
     static FileIO fileIO = new FileIO();
     static TextUI textUI = new TextUI();
 
-    static Connector connector = new Connector();
+    private Connector connector = new Connector();
 
     public StartMenu() {
-        connector.connection();
+
     }
+
 
 
     public void RunMenu() {
         User u = null;
-
+        connector.connection();
         String result = textUI.getUserInput("Welcome! \n Press 1 to sign up \n Press 2 to log in");
         try {
             if (Integer.parseInt(result) == 1) {
@@ -31,7 +32,7 @@ public class StartMenu {
         }
 
 
-        Nav nav = new Nav(u);
+        Nav nav = new Nav(u,connector);
         nav.mainMenu();
     }
 
@@ -51,12 +52,12 @@ public class StartMenu {
 
     public void logout() {
         User u = null;
-        Nav nav = new Nav(u);
         String result = textUI.getUserInput("Are you sure you want to logout? \n Press 1 to logout \n Press 2 to go back");
         User user = null;
         if (Integer.parseInt(result) == 1) {
             RunMenu();
         } else if (Integer.parseInt(result) == 2) {
+            Nav nav = new Nav(u, connector);
             nav.mainMenu();
         } else {
             System.out.println("please try again");
