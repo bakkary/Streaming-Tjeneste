@@ -8,7 +8,9 @@ public class StartMenu {
     static Connector connector = new Connector();
 
     public StartMenu() {
-        connector.connection();
+        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+
+        connector.connection(Integer.parseInt(input));
     }
 
 

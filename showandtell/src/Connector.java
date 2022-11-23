@@ -7,24 +7,22 @@ public class Connector {
     Expresso connection;
     TextUI textUI = new TextUI();
 
-    public boolean connection() {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
-
-       boolean answear = false;
-        if(Integer.parseInt(input) == 1 ){
-            System.out.println("going online");
-            // connection = new SQL();
-            answear = true;
-        } else {
-
-            connection = new FileIO();
-            System.out.println("going offline");
-            answear = false;
-
+    public boolean connection(int input) {
+        boolean answear = false;
+            if (input == 1) {
+                System.out.println("going online");
+                // connection = new SQL();
+                answear = true;
+            } else if (input == 2) {
+                connection = new FileIO();
+                System.out.println("going offline");
+                answear = false;
+            } else{
+                System.out.println("choose an appropriate number");
+                connection(input);
+            }
+            return  answear;
         }
-       
-        return answear;
-    }
 
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);

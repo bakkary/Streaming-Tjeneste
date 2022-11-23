@@ -11,8 +11,13 @@ public class Nav {
 
 
     public Nav(User u) {
-        connector.connection();
-        this.u = u;
+        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+       try {
+           connector.connection(Integer.parseInt(input));
+       }catch (NumberFormatException e) {
+           System.out.println("entered value does not exist please try again");
+        }
+       this.u = u;
     }
 
     public void mainMenu() {
