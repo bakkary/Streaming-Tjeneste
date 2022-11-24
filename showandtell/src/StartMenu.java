@@ -8,9 +8,7 @@ public class StartMenu {
     private Connector connector = new Connector();
 
     public StartMenu() {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
 
-        connector.connection(Integer.parseInt(input));
 
     }
 
@@ -30,7 +28,7 @@ public class StartMenu {
                 RunMenu();
             }
         }catch (NumberFormatException e){
-            System.out.println("The entered value is not recognized as a expected input");
+            System.out.println(result + " is not recognized as a expected input");
             RunMenu();
         }
 
@@ -43,7 +41,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         User result = connector.readUserData(username, password);
-        System.out.println("welcome to show and tell " + username);
+        System.out.println("Hellow " + username + "welcome to show and tell");
         if (result == null) {
             System.out.println("Wrong username or password");
             login();
@@ -77,6 +75,7 @@ public class StartMenu {
         int ID = fileIO.getRow("userRow");
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>(), new ArrayList(), new ArrayList());
         connector.writeUserData(user);
+        System.out.println("test");
         return user;
     }
 

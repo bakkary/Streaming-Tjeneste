@@ -7,18 +7,12 @@ public class Nav {
     private User u;
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
-    private Connector connector = new Connector();
+    private Connector connector;
 
 
     public Nav(User u, Connector connector) {
-        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
-       try {
-           connector.connection(Integer.parseInt(input));
-       }catch (NumberFormatException e) {
-           System.out.println("Entered value does not exist please try again");
-        }
-       this.u = u;
        this.connector = connector;
+       this.u = u;
     }
 
     public void mainMenu() {

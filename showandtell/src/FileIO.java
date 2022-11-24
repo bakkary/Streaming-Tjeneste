@@ -17,6 +17,7 @@ public class FileIO implements Expresso{
         }
         return series;
     }
+
 @Override
     public String[] readSeriesData(String field, String query) {
         File file = new File("showandtell/Data/series.txt");

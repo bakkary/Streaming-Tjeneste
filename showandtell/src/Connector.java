@@ -8,31 +8,8 @@ public class Connector {
     Expresso connection;
     TextUI textUI = new TextUI();
 
-    public boolean connection(int input) {
-        boolean answear = false;
-        try {
-            if (input == 1) {
-                System.out.println("going online");
-                // connection = new SQL();
-                answear = true;
-            } else if (input == 2) {
-                connection = new FileIO();
-                System.out.println("going offline");
-                answear = false;
-            } else{
-                System.out.println("choose an appropriate number");
-                connection(input);
-            }} catch (NumberFormatException e) {
-            System.out.println("entered value does not exist please choose again");
-            connection();
-        }
-
-        return  answear;
-        }
-
     public boolean connection() {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
-
+        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
         boolean answear = false;
         try {
             if (Integer.parseInt(input) == 1) {
@@ -40,22 +17,19 @@ public class Connector {
                 // connection = new SQL();
                 answear = true;
             } else if (Integer.parseInt(input) == 2) {
-
                 connection = new FileIO();
                 System.out.println("going offline");
                 answear = false;
-            } else {
+            } else{
                 System.out.println("choose an appropriate number");
                 connection();
-            }
-
-        } catch (NumberFormatException e) {
-            System.out.println("entered value does not exist please choose again");
+            }} catch (NumberFormatException e) {
+            System.out.println("\"" + input+"\" does not exist please choose again");
             connection();
         }
 
-        return answear;
-    }
+        return  answear;
+        }
 
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);
