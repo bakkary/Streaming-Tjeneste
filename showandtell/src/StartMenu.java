@@ -36,7 +36,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         User result = connector.readUserData(username, password);
-        System.out.println(result);
+        System.out.println("welcome to show and tell " + username);
         if (result == null) {
             System.out.println("Wrong username or password");
             login();
@@ -45,6 +45,7 @@ public class StartMenu {
         }
         return null;
     }
+
 
     public void logout() {
         User u = null;
@@ -77,6 +78,7 @@ public class StartMenu {
         try {
             age = Integer.parseInt(textUI.getUserInput("Please type your age: "));
         } catch (NumberFormatException n) {
+            
             System.out.println("This is not a number");
             age();
         }
