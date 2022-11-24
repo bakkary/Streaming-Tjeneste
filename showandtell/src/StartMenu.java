@@ -24,7 +24,6 @@ public class StartMenu {
             RunMenu();
         }
 
-
         Nav nav = new Nav(u);
         nav.mainMenu();
     }

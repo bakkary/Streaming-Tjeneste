@@ -62,9 +62,7 @@ import java.util.ArrayList;
             String[] seriesArr = new String[series.size()];
             seriesArr = series.toArray(seriesArr);
 
-            for (int i = 0; i < seriesArr.length; i++) {
-                System.out.println(seriesArr[i]);
-            }
+
 
             return seriesArr;
         }
@@ -105,10 +103,6 @@ import java.util.ArrayList;
             String[] movieArr = new String[movie.size()];
             movieArr = movie.toArray(movieArr);
 
-            for (int i = 0; i < movieArr.length; i++) {
-                System.out.println(movieArr[i]);
-            }
-
             return movieArr;
         }
 
@@ -123,13 +117,11 @@ import java.util.ArrayList;
 
                 while(resultSet.next()) {
                     String category = resultSet.getString("categories");
-                    System.out.println(category);
                     categories += category+",";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            System.out.println(categories);
             return categories;
         }
 
@@ -168,7 +160,6 @@ import java.util.ArrayList;
             user.add(7, savedSeries);
             String[] userArr = new String[user.size()];
             userArr = user.toArray(userArr);
-
             return userArr;
         }
 
@@ -185,12 +176,14 @@ import java.util.ArrayList;
                     int ID = resultSet.getInt(label);
                     list += ID + ",";
                 }
+                if (list.length() == 0) {
+                    list += ",";
+                }
 
 
             } catch(SQLException e) {
                 e.printStackTrace();
             }
-
             return list;
         }
 
@@ -221,11 +214,14 @@ import java.util.ArrayList;
 
         public void updateSaved(User u) {
             String str = "(";
-            for (Integer i: u.getSavedMovies()) {
-                str += i + ",";
+            for (int j = 0; j < u.getSavedMovies().size(); j++) {
+                str += u.getSavedMovies().get(j) + ",";
             }
+            str = str.substring(0, str.length()-1);
             str += ")";
-            String query = ("delete from movies_saved where movie_id not in" +str+ " and user_id =" + u.getID()+ "");
+            System.out.println(u.getSavedMovies());
+            System.out.println(str);
+            String query = ("delete from movies_saved where movie_id not in " +str+ " and user_id = " + u.getID()+ "");
 
             try {
                 Statement statement = this.connection.createStatement();
@@ -239,8 +235,8 @@ import java.util.ArrayList;
         public void updateUserData(User u) {
             // update movies_saved
             updateSaved(u);
-            for (Integer i: u.getSavedMovies()) {
-                String query = ("insert ignore into movies_saved values("+ u.getID() +","+ i +")");
+            for (int i = 0; i < u.getSavedMovies().size(); i++) {
+                String query = ("insert ignore into movies_saved values("+ u.getID() +", "+ u.getSavedMovies().get(i) +")");
                 try {
                     Statement statement = this.connection.createStatement();
                     statement.executeUpdate(query);
@@ -250,8 +246,8 @@ import java.util.ArrayList;
             }
 
             // update movies_watched
-            for (Integer i: u.getWatchedMovies()) {
-                String query = ("insert ignore into movies_watched values("+ u.getID() +","+ i +")");
+            for (int i = 0; i < u.getWatchedMovies().size(); i++) {
+                String query = ("insert ignore into movies_watched values("+ u.getWatchedMovies().get(i) +", "+ u.getID() +")");
                 try {
                     Statement statement = this.connection.createStatement();
                     statement.executeUpdate(query);
@@ -260,8 +256,8 @@ import java.util.ArrayList;
                 }
             }
             // update series_saved
-            for (Integer i: u.getSavedMovies()) {
-                String query = ("insert into series_saved values("+ u.getID() +","+ i +") where not exists (select * from series_saved where user_id = "+ u.getID() +"," + i+")");
+            for (int i = 0; i < u.getSavedSeries().size(); i++) {
+                String query = ("insert into series_saved values("+ u.getID() +", "+ u.getSavedSeries().get(i) +")");
                 try {
                     Statement statement = this.connection.createStatement();
                     statement.executeUpdate(query);
@@ -270,8 +266,8 @@ import java.util.ArrayList;
                 }
             }
             // update series_watched
-            for (Integer i: u.getWatchedMovies()) {
-                String query = ("insert ignore into series_watched values("+ u.getID() +","+ i +")");
+            for (int i = 0; i < u.getWatchedSeries().size(); i++) {
+                String query = ("insert ignore into series_watched values("+ u.getID() +", "+ u.getWatchedSeries().get(i) +")");
                 try {
                     Statement statement = this.connection.createStatement();
                     statement.executeUpdate(query);

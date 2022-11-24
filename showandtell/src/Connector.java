@@ -70,7 +70,6 @@ public class Connector {
         ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
         String[] savedseries = result[7].split(",");
         ArrayList<String> savedSeries = new ArrayList<>(Arrays.asList(savedseries));
-
         User user = new User(result[1], result[2], Integer.parseInt(result[3]), Integer.parseInt(result[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
         return user;
     }

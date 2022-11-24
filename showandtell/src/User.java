@@ -39,10 +39,7 @@ public class User {
     }
 
     public void removeSavedMovie(int ID) {
-        System.out.println(ID);
-        System.out.println(savedMovies);
         savedMovies.remove(Integer.valueOf(ID));
-        System.out.println(savedMovies);
     }
 
     public void setWatchedSeries(Integer watchedSer) {
@@ -62,10 +59,7 @@ public class User {
     }
 
     public void removeSavedSeries(int ID) {
-        System.out.println(ID);
-        System.out.println(savedSeries);
         savedSeries.remove(Integer.valueOf(ID));
-        System.out.println(savedSeries);
     }
 
 

@@ -16,7 +16,6 @@ public class Nav {
     }
 
     public void mainMenu() {
-
         String input = "";
         while (!input.equalsIgnoreCase("8")) {
 
@@ -117,6 +116,7 @@ public class Nav {
                 break;
             case 3:
                 u.removeSavedMovie(mov.getID());
+                System.out.println(1);
                 break;
             case 4:
                 mainMenu();
@@ -125,6 +125,7 @@ public class Nav {
                 System.out.println("Please try again");
                 movieAction(mov);
         }
+        System.out.println(2);
         connector.updateUserData(u);
     }
 
