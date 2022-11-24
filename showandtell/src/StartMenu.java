@@ -74,6 +74,7 @@ public class StartMenu {
         int ID = fileIO.getRow("userRow");
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>(), new ArrayList(), new ArrayList());
         connector.writeUserData(user);
+        System.out.println("test");
         return user;
     }
 
