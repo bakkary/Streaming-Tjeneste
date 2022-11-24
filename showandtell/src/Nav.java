@@ -102,14 +102,22 @@ public class Nav {
             case 1:
                 System.out.println(mov);
                 if (mov instanceof Movie) {
-                    u.setWatchedMovies(mov.getID());
+                    if (u.getWatchedMovies().contains(mov.getID())) {
+                        System.out.println("This movie already exists, please try again");
+                    } else {
+                        u.setWatchedMovies(mov.getID());
+                    }
                 }else {
-                    u.setSavedSeries(mov.getID());
+                    if (u.getWatchedSeries().contains(mov.getID())) {
+                        System.out.println("This series already exists, please try again");
+                    } else {
+                        u.setSavedSeries(mov.getID());
+                    }
                 }
                 break;
             case 2:
                 if(u.getSavedMovies().contains(mov.getID())) {
-                    System.out.println("This movie already exisist please try again");
+                    System.out.println("This movie already exists, please try again");
                     movieAction(mov);
                 } else {
                     u.setSavedMovies(mov.getID());
@@ -126,7 +134,6 @@ public class Nav {
                 System.out.println("Please try again");
                 movieAction(mov);
         }
-        System.out.println(2);
         connector.updateUserData(u);
     }
 
@@ -140,7 +147,7 @@ public class Nav {
                 break;
             case 2:
                 if(u.getSavedSeries().contains(ser.getID())){
-                    System.out.println("This movie already exisist please try again");
+                    System.out.println("This movie already exists, please try again");
                     seriesAction(ser);
                 }else {
                     u.setSavedSeries(ser.getID());

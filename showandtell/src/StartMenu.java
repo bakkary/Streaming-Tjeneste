@@ -24,7 +24,7 @@ public class StartMenu {
             } else if (Integer.parseInt(result) == 2) {
                 u = login();
             } else {
-                System.out.println("please try again");
+                System.out.println("Please try again");
                 RunMenu();
             }
         }catch (NumberFormatException e){
@@ -33,7 +33,7 @@ public class StartMenu {
         }
 
 
-        Nav nav = new Nav(u);
+        Nav nav = new Nav(u,connector);
         nav.mainMenu();
     }
 
@@ -41,7 +41,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         User result = connector.readUserData(username, password);
-        System.out.println("Hellow " + username + "welcome to show and tell");
+        System.out.println("Hello " + username + "Welcome to Show and Tell");
         if (result == null) {
             System.out.println("Wrong username or password");
             login();
@@ -55,14 +55,13 @@ public class StartMenu {
     public void logout() {
         User u = null;
         String result = textUI.getUserInput("Are you sure you want to logout? \n Press 1 to logout \n Press 2 to go back");
-        User user = null;
         if (Integer.parseInt(result) == 1) {
             RunMenu();
         } else if (Integer.parseInt(result) == 2) {
             Nav nav = new Nav(u, connector);
             nav.mainMenu();
         } else {
-            System.out.println("please try again");
+            System.out.println("Please try again");
             login();
         }
 
@@ -75,7 +74,6 @@ public class StartMenu {
         int ID = fileIO.getRow("userRow");
         User user = new User(username, password, age, ID, new ArrayList<>(), new ArrayList<>(), new ArrayList(), new ArrayList());
         connector.writeUserData(user);
-        System.out.println("test");
         return user;
     }
 

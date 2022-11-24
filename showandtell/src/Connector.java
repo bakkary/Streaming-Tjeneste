@@ -9,27 +9,27 @@ public class Connector {
     TextUI textUI = new TextUI();
 
     public boolean connection() {
-        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
-        boolean answear = false;
+        String input = textUI.getUserInput(" Hello \n Press 1 if you would like to access online files \n Press 2 if you would like to access local files");
+        boolean answer = false;
         try {
             if (Integer.parseInt(input) == 1) {
-                System.out.println("going online");
-                // connection = new SQL();
-                answear = true;
+                System.out.println("Going online");
+                connection = new SQLIO();
+                answer = true;
             } else if (Integer.parseInt(input) == 2) {
                 connection = new FileIO();
-                System.out.println("going offline");
-                answear = false;
+                System.out.println("Going offline");
+                answer = false;
             } else{
-                System.out.println("choose an appropriate number");
+                System.out.println("Choose an appropriate number");
                 connection();
             }} catch (NumberFormatException e) {
             System.out.println("\"" + input+"\" does not exist please choose again");
             connection();
         }
 
-        return  answear;
-        }
+        return  answer;
+    }
 
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);

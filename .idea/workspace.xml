@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Connector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/SQLIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/SQLIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/Data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/SQLIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/SQLIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
