@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Connector {
@@ -7,21 +8,27 @@ public class Connector {
     Expresso connection;
     TextUI textUI = new TextUI();
 
-    public boolean connection(int input) {
+    public boolean connection() {
+        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
         boolean answear = false;
-            if (input == 1) {
-                System.out.println("Going online");
+        try {
+            if (Integer.parseInt(input) == 1) {
+                System.out.println("going online");
                 // connection = new SQL();
                 answear = true;
-            } else if (input == 2) {
+            } else if (Integer.parseInt(input) == 2) {
                 connection = new FileIO();
-                System.out.println("Going offline");
+                System.out.println("going offline");
                 answear = false;
             } else{
-                System.out.println("Choose an appropriate number");
-                connection(input);
-            }
-            return  answear;
+                System.out.println("choose an appropriate number");
+                connection();
+            }} catch (NumberFormatException e) {
+            System.out.println("\"" + input+"\" does not exist please choose again");
+            connection();
+        }
+
+        return  answear;
         }
 
     private Map content(String[] c) {
@@ -75,7 +82,13 @@ public class Connector {
 
     Movie readMovieData(String field, String query) {
         String[] movieData = connection.readMovieData(field, query);
-        return movie(movieData);
+        if (movieData == null) {
+            return null;
+        } else {
+
+            return movie(movieData);
+        }
+
     }
 
     Series readSeriesData(String field, String query) {
