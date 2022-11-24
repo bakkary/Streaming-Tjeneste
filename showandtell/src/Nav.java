@@ -7,12 +7,12 @@ public class Nav {
     private User u;
     public FileIO fileIO = new FileIO();
     private TextUI textUI = new TextUI();
-    private Connector connector = new Connector();
+    private Connector connector;
 
 
-    public Nav(User u) {
-        connector.connection();
-        this.u = u;
+    public Nav(User u, Connector connector) {
+       this.connector = connector;
+       this.u = u;
     }
 
     public void mainMenu() {
@@ -54,14 +54,15 @@ public class Nav {
         }
     }
 
-    private void searchByTitle(boolean isMovie) {
+    protected void searchByTitle(boolean isMovie) {
         if (isMovie) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
             Movie n = connector.readMovieData("title", input);
             if (n == null) {
+                System.out.println("Movie doesnt exist please try again");
                 searchByTitle(true);
             } else if (u.getAge() < 18 && n.getAge()) {
-                System.out.println("You are not old enough to see this movie, please try again");
+                System.out.println(u.getAge() + " is not old enough to watch " + input + ", please try again");
                 searchByTitle(true);
             } else {
                 movieAction(n);
@@ -72,7 +73,7 @@ public class Nav {
             if (s == null) {
                 searchByTitle(false);
             } else if (u.getAge() < 18 && s.getAge()) {
-                System.out.println("You are not old enough to see this series, please try again");
+                System.out.println(s.getAge() + " Is not old enough to Watch " +input+ " , please try again");
                 searchByTitle(false);
             } else {
                 seriesAction(s);
@@ -81,7 +82,7 @@ public class Nav {
     }
 
     public void searchByCategory(){
-        String userInput = textUI.getUserInput("please type 1 for movie and 2 for series");
+        String userInput = textUI.getUserInput("Please type 1 for movie and 2 for series");
 
         ArrayList<String> cat = connector.searchCategories(Integer.parseInt(userInput));
 
@@ -89,7 +90,7 @@ public class Nav {
 
         ArrayList<Content> result = connector.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
-        input = textUI.getUserInput("please select one of the movies", result);
+        input = textUI.getUserInput("Please select one of the movies", result);
 
         movieAction(result.get(Integer.parseInt(input)-1));
     }

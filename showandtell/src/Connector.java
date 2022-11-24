@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Connector {
@@ -8,23 +9,27 @@ public class Connector {
     TextUI textUI = new TextUI();
 
     public boolean connection() {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
-
-       boolean answear = false;
-        if(Integer.parseInt(input) == 1 ){
-            System.out.println("going online");
-             connection = new SQLIO();
-            answear = true;
-        } else {
-
-            connection = new FileIO();
-            System.out.println("going offline");
-            answear = false;
-
+        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
+        boolean answear = false;
+        try {
+            if (Integer.parseInt(input) == 1) {
+                System.out.println("going online");
+                // connection = new SQL();
+                answear = true;
+            } else if (Integer.parseInt(input) == 2) {
+                connection = new FileIO();
+                System.out.println("going offline");
+                answear = false;
+            } else{
+                System.out.println("choose an appropriate number");
+                connection();
+            }} catch (NumberFormatException e) {
+            System.out.println("\"" + input+"\" does not exist please choose again");
+            connection();
         }
-       
-        return answear;
-    }
+
+        return  answear;
+        }
 
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);
@@ -70,13 +75,20 @@ public class Connector {
         ArrayList<String> watchedSeries = new ArrayList<>(Arrays.asList(watchedseries));
         String[] savedseries = result[7].split(",");
         ArrayList<String> savedSeries = new ArrayList<>(Arrays.asList(savedseries));
+
         User user = new User(result[1], result[2], Integer.parseInt(result[3]), Integer.parseInt(result[0]), watchedMovies, savedMovies, watchedSeries, savedSeries);
         return user;
     }
 
     Movie readMovieData(String field, String query) {
         String[] movieData = connection.readMovieData(field, query);
-        return movie(movieData);
+        if (movieData == null) {
+            return null;
+        } else {
+
+            return movie(movieData);
+        }
+
     }
 
     Series readSeriesData(String field, String query) {
