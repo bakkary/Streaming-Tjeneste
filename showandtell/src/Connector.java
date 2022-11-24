@@ -8,6 +8,7 @@ public class Connector {
     Expresso connection;
     TextUI textUI = new TextUI();
 
+
     public boolean connection() {
         String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
 
@@ -22,18 +23,19 @@ public class Connector {
                 connection = new FileIO();
                 System.out.println("going offline");
                 answear = false;
-            } else{
+            } else {
                 System.out.println("choose an appropriate number");
                 connection();
             }
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("entered value does not exist please choose again");
             connection();
         }
 
         return answear;
     }
+
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);
         String title = c[1];
@@ -85,8 +87,15 @@ public class Connector {
 
     Movie readMovieData(String field, String query) {
         String[] movieData = connection.readMovieData(field, query);
-        return movie(movieData);
+        if (movieData == null) {
+            return null;
+        } else {
+
+            return movie(movieData);
+        }
     }
+
+
 
     Series readSeriesData(String field, String query) {
         String[] seriesData = connection.readSeriesData(field, query);

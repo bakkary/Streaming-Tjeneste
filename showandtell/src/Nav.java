@@ -25,7 +25,7 @@ public class Nav {
             input = textUI.getUserInput("Please select one of the following", options);
             switch (Integer.parseInt(input)) {
                 case 1:
-                    searchByTitle(true);
+                   searchByTitle(true);
                     break;
                 case 2:
                     searchByTitle(false);
@@ -55,11 +55,12 @@ public class Nav {
         }
     }
 
-    private void searchByTitle(boolean isMovie) {
+    protected void searchByTitle(boolean isMovie) {
         if (isMovie) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
             Movie n = connector.readMovieData("title", input);
             if (n == null) {
+                System.out.println("Movie doesnt exist please try again");
                 searchByTitle(true);
             } else if (u.getAge() < 18 && n.getAge()) {
                 System.out.println("You are not old enough to see this movie, please try again");
