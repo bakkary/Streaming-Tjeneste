@@ -11,11 +11,11 @@ public class Nav {
 
 
     public Nav(User u) {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
        try {
            connector.connection(Integer.parseInt(input));
        }catch (NumberFormatException e) {
-           System.out.println("entered value does not exist please try again");
+           System.out.println("Entered value does not exist please try again");
         }
        this.u = u;
     }
@@ -87,7 +87,7 @@ public class Nav {
     }
 
     public void searchByCategory(){
-        String userInput = textUI.getUserInput("please type 1 for movie and 2 for series");
+        String userInput = textUI.getUserInput("Please type 1 for movie and 2 for series");
 
         ArrayList<String> cat = connector.searchCategories(Integer.parseInt(userInput));
 
@@ -95,7 +95,7 @@ public class Nav {
 
         ArrayList<Content> result = connector.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
-        input = textUI.getUserInput("please select one of the movies", result);
+        input = textUI.getUserInput("Please select one of the movies", result);
 
         movieAction(result.get(Integer.parseInt(input)-1));
     }
