@@ -41,7 +41,7 @@ public class StartMenu {
         String username = textUI.getUserInput("Please type your username: ");
         String password = textUI.getUserInput("Please type your password: ");
         User result = connector.readUserData(username, password);
-        System.out.println("Hellow " + username + "welcome to show and tell");
+        System.out.println("Hello " + username + " welcome to show and tell");
         if (result == null) {
             System.out.println("Wrong username or password");
             login();
