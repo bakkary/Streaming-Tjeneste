@@ -219,11 +219,28 @@ import java.util.ArrayList;
 
         }
 
+        public void updateSaved(User u) {
+            String str = "(";
+            for (Integer i: u.getSavedMovies()) {
+                str += i + ",";
+            }
+            str += ")";
+            String query = ("delete from movies_saved where movie_id not in" +str+ " and user_id =" + u.getID()+ "");
+
+            try {
+                Statement statement = this.connection.createStatement();
+                statement.executeUpdate(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         @Override
         public void updateUserData(User u) {
             // update movies_saved
+            updateSaved(u);
             for (Integer i: u.getSavedMovies()) {
-                String query = ("insert into movies_saved values("+ u.getID() +","+ i +") where not exists (select * from movies_saved where user_id = "+ u.getID() +"," + i+")");
+                String query = ("insert ignore into movies_saved values("+ u.getID() +","+ i +")");
                 try {
                     Statement statement = this.connection.createStatement();
                     statement.executeUpdate(query);
@@ -231,6 +248,7 @@ import java.util.ArrayList;
                     e.printStackTrace();
                 }
             }
+
             // update movies_watched
             for (Integer i: u.getWatchedMovies()) {
                 String query = ("insert ignore into movies_watched values("+ u.getID() +","+ i +")");
