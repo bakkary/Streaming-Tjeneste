@@ -16,7 +16,7 @@ public class Connector {
         try {
             if (Integer.parseInt(input) == 1) {
                 System.out.println("going online");
-                // connection = new SQL();
+                //connection = new SQL();
                 answear = true;
             } else if (Integer.parseInt(input) == 2) {
 

@@ -51,18 +51,15 @@ public class StartMenu {
     }
 
     public void logout() {
-        User u = null;
-        String result = textUI.getUserInput("Are you sure you want to logout? \n Press 1 to logout \n Press 2 to go back");
-        User user = null;
-        if (Integer.parseInt(result) == 1) {
-            RunMenu();
-        } else if (Integer.parseInt(result) == 2) {
+       /* User u = null;
+        System.out.println("Logging out....");
+        connector.connection();
+            login();
             Nav nav = new Nav(u, connector);
             nav.mainMenu();
-        } else {
-            System.out.println("please try again");
-            login();
-        }
+
+        */
+
 
     }
 

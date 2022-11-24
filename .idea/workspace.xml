@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="44a26c77-5a7d-4180-8001-69842d4d58fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/FileIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/Nav.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Streaming-Tjeneste/StartMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/Data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/Data/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/FileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showandtell/src/Nav.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Nav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showandtell/src/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showandtell/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/showandtell/src/StartMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,5 +89,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/showandtell/src/Nav.java</url>
+          <line>57</line>
+          <properties class="Nav" method="searchByTitle">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
