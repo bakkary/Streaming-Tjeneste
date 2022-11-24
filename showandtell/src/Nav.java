@@ -61,13 +61,13 @@ public class Nav {
     }
 
     private void searchByTitle(boolean isMovie) {
-        if (isMovie) {
+        if (isMovie == true) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
             Movie n = connector.readMovieData("title", input);
             if (n == null) {
                 searchByTitle(true);
             } else if (u.getAge() < 18 && n.getAge()) {
-                System.out.println("You are not old enough to see this movie, please try again");
+                System.out.println(u.getAge() + " is not old enough to watch " + input + ", please try again");
                 searchByTitle(true);
             } else {
                 movieAction(n);
@@ -78,7 +78,7 @@ public class Nav {
             if (s == null) {
                 searchByTitle(false);
             } else if (u.getAge() < 18 && s.getAge()) {
-                System.out.println("You are not old enough to see this series, please try again");
+                System.out.println(s.getAge() + " Is not old enough to Watch " +input+ " , please try again");
                 searchByTitle(false);
             } else {
                 seriesAction(s);

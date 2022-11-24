@@ -74,7 +74,9 @@ public class Connector {
     }
 
     Movie readMovieData(String field, String query) {
+
         String[] movieData = connection.readMovieData(field, query);
+
         return movie(movieData);
     }
 
