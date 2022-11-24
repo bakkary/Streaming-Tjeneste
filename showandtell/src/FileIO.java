@@ -46,7 +46,6 @@ public class FileIO implements Expresso{
     public String[] readMovieData(String field, String query) {
         File file = new File("showandtell/Data/movies.txt");
         try {
-            System.out.println(file);
             Scanner input = new Scanner(file);
             String[] header = input.nextLine().split(";");
             int index = 0;

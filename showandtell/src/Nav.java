@@ -10,7 +10,7 @@ public class Nav {
     private Connector connector = new Connector();
 
 
-    public Nav(User u) {
+    public Nav(User u, Connector connector) {
         String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
        try {
            connector.connection(Integer.parseInt(input));
@@ -18,6 +18,7 @@ public class Nav {
            System.out.println("Entered value does not exist please try again");
         }
        this.u = u;
+       this.connector = connector;
     }
 
     public void mainMenu() {
@@ -60,11 +61,12 @@ public class Nav {
         }
     }
 
-    private void searchByTitle(boolean isMovie) {
-        if (isMovie == true) {
+    protected void searchByTitle(boolean isMovie) {
+        if (isMovie) {
             String input = textUI.getUserInput("Write the title of the movie you wish to watch");
             Movie n = connector.readMovieData("title", input);
             if (n == null) {
+                System.out.println("Movie doesnt exist please try again");
                 searchByTitle(true);
             } else if (u.getAge() < 18 && n.getAge()) {
                 System.out.println(u.getAge() + " is not old enough to watch " + input + ", please try again");

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Connector {
@@ -9,6 +10,7 @@ public class Connector {
 
     public boolean connection(int input) {
         boolean answear = false;
+        try {
             if (input == 1) {
                 System.out.println("going online");
                 // connection = new SQL();
@@ -20,9 +22,40 @@ public class Connector {
             } else{
                 System.out.println("choose an appropriate number");
                 connection(input);
-            }
-            return  answear;
+            }} catch (NumberFormatException e) {
+            System.out.println("entered value does not exist please choose again");
+            connection();
         }
+
+        return  answear;
+        }
+
+    public boolean connection() {
+        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+
+        boolean answear = false;
+        try {
+            if (Integer.parseInt(input) == 1) {
+                System.out.println("going online");
+                // connection = new SQL();
+                answear = true;
+            } else if (Integer.parseInt(input) == 2) {
+
+                connection = new FileIO();
+                System.out.println("going offline");
+                answear = false;
+            } else {
+                System.out.println("choose an appropriate number");
+                connection();
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("entered value does not exist please choose again");
+            connection();
+        }
+
+        return answear;
+    }
 
     private Map content(String[] c) {
         int ID = Integer.parseInt(c[0]);
@@ -74,10 +107,14 @@ public class Connector {
     }
 
     Movie readMovieData(String field, String query) {
-
         String[] movieData = connection.readMovieData(field, query);
+        if (movieData == null) {
+            return null;
+        } else {
 
-        return movie(movieData);
+            return movie(movieData);
+        }
+
     }
 
     Series readSeriesData(String field, String query) {
