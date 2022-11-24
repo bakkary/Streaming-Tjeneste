@@ -8,7 +8,7 @@ public class StartMenu {
     static Connector connector = new Connector();
 
     public StartMenu() {
-        String input = textUI.getUserInput(" hello press 1  if you would like to acces online files \n press 2 if you would like to acces local files");
+        String input = textUI.getUserInput(" Hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
 
         connector.connection(Integer.parseInt(input));
     }
@@ -23,7 +23,7 @@ public class StartMenu {
         } else if (Integer.parseInt(result) == 2) {
             u = login();
         } else {
-            System.out.println("please try again");
+            System.out.println("Please try again");
             RunMenu();
         }
 
@@ -56,7 +56,7 @@ public class StartMenu {
         } else if (Integer.parseInt(result) == 2) {
             nav.mainMenu();
         } else {
-            System.out.println("please try again");
+            System.out.println("Please try again");
             login();
         }
 

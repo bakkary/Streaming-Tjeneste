@@ -11,11 +11,11 @@ public class Nav {
 
 
     public Nav(User u) {
-        String input = textUI.getUserInput(" hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
+        String input = textUI.getUserInput(" Hello \n Press 1 if you would like to acces online files \n Press 2 if you would like to acces local files");
        try {
            connector.connection(Integer.parseInt(input));
        }catch (NumberFormatException e) {
-           System.out.println("Entered value does not exist please try again");
+           System.out.println("Entered value does not exist, please try again");
         }
        this.u = u;
     }
@@ -91,7 +91,7 @@ public class Nav {
 
         ArrayList<String> cat = connector.searchCategories(Integer.parseInt(userInput));
 
-        String input = textUI.getUserInput("Please select a Categorie", cat);
+        String input = textUI.getUserInput("Please select a categorie", cat);
 
         ArrayList<Content> result = connector.movieCat(cat.get(Integer.parseInt(input)-1),Integer.parseInt(userInput));
 
@@ -114,7 +114,7 @@ public class Nav {
                 break;
             case 2:
                 if(u.getSavedMovies().contains(mov.getID())) {
-                    System.out.println("This movie already exisist please try again");
+                    System.out.println("This movie already exisist, please try again");
                     movieAction(mov);
                 } else {
                     u.setSavedMovies(mov.getID());
@@ -143,7 +143,7 @@ public class Nav {
                 break;
             case 2:
                 if(u.getSavedSeries().contains(ser.getID())){
-                    System.out.println("This movie already exisist please try again");
+                    System.out.println("This movie already exisist, please try again");
                     seriesAction(ser);
                 }else {
                     u.setSavedSeries(ser.getID());

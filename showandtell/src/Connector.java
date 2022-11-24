@@ -10,15 +10,15 @@ public class Connector {
     public boolean connection(int input) {
         boolean answear = false;
             if (input == 1) {
-                System.out.println("going online");
+                System.out.println("Going online");
                 // connection = new SQL();
                 answear = true;
             } else if (input == 2) {
                 connection = new FileIO();
-                System.out.println("going offline");
+                System.out.println("Going offline");
                 answear = false;
             } else{
-                System.out.println("choose an appropriate number");
+                System.out.println("Choose an appropriate number");
                 connection(input);
             }
             return  answear;
